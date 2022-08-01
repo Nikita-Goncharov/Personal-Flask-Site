@@ -1,0 +1,7 @@
+env/
+.env
+
+*.db
+
+__pycache__
+*.py[co]
