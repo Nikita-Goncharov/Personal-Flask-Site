@@ -2,11 +2,12 @@
 
 {% block head %}
 <title>Home</title>
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/home_styles.css') }}">
 {% endblock %}
 
 
 {% block carousel %}
-<section class=" slider_section position-relative">
+<div class="outside slider_section position-relative">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -148,12 +149,11 @@
             </a>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
 
 {% block content %}
-
-<section class="service_section layout_padding ">
+<div class="outside service_section layout_padding ">
     <div class="container">
         <h2 class="custom_heading">Our Services</h2>
         <p class="custom_heading-text">
@@ -163,7 +163,8 @@
         <div class=" layout_padding2">
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-1.png') }}" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-1.png') }}"
+                        alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">Orange</h5>
                         <p class="card-text">
@@ -172,10 +173,14 @@
                             form, by injected humour, or randomised words which don't look
                             even slightly believable.
                         </p>
+                        <div class="d-flex justify-content-center">
+                            <a href="" class="custom_dark-btn">Read More</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-2.png') }}" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-2.png') }}"
+                        alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">Grapes</h5>
                         <p class="card-text">
@@ -184,10 +189,14 @@
                             form, by injected humour, or randomised words which don't look
                             even slightly believable.
                         </p>
+                        <div class="d-flex justify-content-center">
+                            <a href="" class="custom_dark-btn">Read More</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-3.png') }}" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-3.png') }}"
+                        alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">Gauva</h5>
                         <p class="card-text">
@@ -196,44 +205,29 @@
                             form, by injected humour, or randomised words which don't look
                             even slightly believable.
                         </p>
+                        <div class="d-flex justify-content-center">
+                            <a href="" class="custom_dark-btn">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <a href="" class="custom_dark-btn">
-                Read More
-            </a>
-        </div>
-    </div>
-</section>
 
-<section class="tasty_section">
+    </div>
+</div>
+
+<div class="outside tasty_section">
     <div class="container_fluid">
         <h2>Very tasty fruits</h2>
     </div>
-</section>
+</div>
 
-<section>
-    <div class="container">
-        
-
-        <div class="comments">
-            {% if comments %}
-            {% for com in comments %}
-            <p>{{ com.id }}</p>
-            <h2>{{ com.name }}</h2>
-            <h4>{{ com.message }}</h4>
-            {% endfor %}
-            {% else %}
-            <h2>No comment</h2>
-            {% endif %}
-        </div>
-
+<div class="outside comment-container">
+    <div class="comment-form">
         <form method="POST">
+            <h3>Add your comment</h3>
             {{ form.csrf_token }}
             <div>
-                {{ form.client_name.label }}
                 {{ form.client_name }}
                 {% if form.client_name.errors %}
                 <ul class="errors">
@@ -243,7 +237,6 @@
                 {% endif %}
             </div>
             <div>
-                {{ form.message.label }}
                 {{ form.message }}
                 {% if form.client_name.errors %}
                 <ul class="errors">
@@ -254,44 +247,50 @@
             </div>
             <div>{{ form.add }}</div>
         </form>
-        
-        
     </div>
-</section>
-
-<section class="contact_section layout_padding">
-    <div class="container">
-        <h2 class="font-weight-bold">Contact Us</h2>
-        <div class="row">
-            <div class="col-md-8 mr-auto">
-                <form action="">
-                    <div class="contact_form-container">
-                        <div>
-                            <div>
-                                <input type="text" placeholder="Name">
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Phone Number">
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Email">
-                            </div>
-
-                            <div class="mt-5">
-                                <input type="text" placeholder="Message">
-                            </div>
-                            <div class="mt-5">
-                                <button type="submit">
-                                    send
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </form>
+    <div class="comments">
+        {% if comments %}
+        {% for comment in comments %}
+        <div class="media">
+            <div class="comment-img">
+                <img src="{{ url_for('.static', filename='images/user.png') }}" alt="User icon">
+            </div>
+            <div class="comment-body">
+                <h4 class="user_name">{{ comment.name }}</h4>
+                <p class="comment-txt">{{ comment.message }}</p>
+            </div>
+            <div class="comment-date">
+                <p><small>{{ comment.time }}</small></p>
             </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <h2>No comment</h2>
+        {% endif %}
     </div>
-</section>
+</div>
+
+<div class="outside contact_section">
+    <form action="">
+        <h2 class="">Contact Us</h2>
+        <div>
+            <input type="text" placeholder="Name">
+        </div>
+        <div>
+            <input type="text" placeholder="Phone Number">
+        </div>
+        <div>
+            <input type="email" placeholder="Email">
+        </div>
+
+        <div class="mt-5">
+            <input type="text" placeholder="Message">
+        </div>
+        <div class="mt-5">
+            <button type="submit">
+                send
+            </button>
+        </div>
+    </form>
+</div>
 {% endblock %}

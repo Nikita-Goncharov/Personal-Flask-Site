@@ -22,8 +22,9 @@ class Comment(db.Model):
     __tablename__ = 'Comments'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
+    time = db.Column(db.String(100))
     message = db.Column(db.Text)
 
 @login_manager.user_loader
-def load_user(u_id):
-    return User.query.get(u_id)
+def load_user(user_id):
+    return User.query.get(user_id)

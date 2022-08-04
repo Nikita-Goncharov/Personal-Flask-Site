@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<title>Services</title>
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/service_styles.css') }}">
 {% endblock %}
 
 {% block carousel %}
 {% endblock %}
 
 {% block content %}
-<section class="service_section layout_padding ">
+<div class="service_section layout_padding ">
   <div class="container">
     <h2 class="custom_heading">Our Services</h2>
     <p class="custom_heading-text">
@@ -65,6 +67,6 @@
     </div>
     
   </div>
-</section>
+</div>
 {% endblock %}
 

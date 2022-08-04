@@ -1,0 +1,28 @@
+.layout_padding {
+    padding: 75px 0
+}
+
+.layout_padding2 {
+    padding: 45px 0
+}
+
+.contact_section input {
+    border: none;
+    outline: 0;
+    border-bottom: .8px solid #252525;
+    width: 90%;
+    margin: 10px 0
+}
+
+.contact_form-container {
+    padding: 15px 0 15px 0
+}
+
+.contact_form-container button {
+    border: none;
+    background-color: #fc5d35;
+    color: #fff;
+    padding: 8px 40px;
+    text-transform: uppercase;
+    font-size: 14px
+}

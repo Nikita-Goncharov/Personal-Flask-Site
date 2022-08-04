@@ -3,17 +3,20 @@ from flask_login import login_required, login_user, logout_user
 from flask_.forms import CommentForm, RegisterForm, LoginForm
 from flask_.models import User, Comment
 from flask_ import db
+from datetime import date
 app_blueprint = Blueprint('app_blue', __name__, static_folder='static', template_folder='templates', static_url_path='')
 
 
-@app_blueprint.route('/')
+@app_blueprint.route('/', methods=['GET', 'POST'])
 def index():
     form = CommentForm()
+    comments = Comment.query.all()
     if form.validate_on_submit():
-        comment = Comment(name=form.client_name.data, message=form.message.data)
+        comment = Comment(name=form.client_name.data, message=form.message.data, time=date.today().strftime("%B %d, %Y"))
         db.session.add(comment)
         db.session.commit()
-    return render_template('flask_/home.html', form=form)
+        return redirect(url_for('app_blue.index'))
+    return render_template('flask_/home.html', form=form, comments=comments)
 
 @app_blueprint.route('/resume')
 def resume():
@@ -29,7 +32,8 @@ def about():
 
 @app_blueprint.route('/blog')
 def blog():
-    return render_template('flask_/blog.html')
+    users = User.query.all()
+    return render_template('flask_/blog.html', users=users)
 
 @app_blueprint.route('/contact')
 def contact():
@@ -59,6 +63,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user)
             return redirect(url_for('app_blue.index'))
+        return redirect(url_for('app_blue.login'))
     return render_template('auth/login.html', form=form)
 
 

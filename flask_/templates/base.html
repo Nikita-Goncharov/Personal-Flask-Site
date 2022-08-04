@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/bootstrap.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
     <link href="{{ url_for('.static', filename='css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('.static', filename='css/responsive.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ url_for('.static', filename='icon/ico.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ url_for('.static', filename='fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% block head %}{% endblock %}
 </head>
 
@@ -63,65 +62,66 @@
             {% block carousel %}{% endblock %}
         </div>
         
-        <main class="container">
+        <main>
             {% block content %}{% endblock %}
-        </main>
-
-        <section class="info_section layout_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5>About me</h5>
-                        <ul>
-                            <li>randomised</li>
-                            <li>words which</li>
-                            <li>don't look even</li>
-                            <li>slightly</li>
-                            <li>believable. If you</li>
-                            <li>are going to use</li>
-                            <li>a passage of</li>
-                            <li>Lorem Ipsum,</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Services</h5>
-                        <ul>
-                            <li>randomised</li>
-                            <li>words which</li>
-                            <li>don't look even</li>
-                            <li>slightly</li>
-                            <li>believable. If you</li>
-                            <li>are going to use</li>
-                            <li>a passage of</li>
-                            <li>Lorem Ipsum,</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Useful links</h5>
-                        <ul>
-                            <li>randomised</li>
-                            <li>words which</li>
-                            <li>don't look even</li>
-                            <li>slightly</li>
-                            <li>believable. If you</li>
-                            <li>are going to use</li>
-                            <li>a passage of</li>
-                            <li>Lorem Ipsum,</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="social_container">
-                            <h5>Follow Us</h5>
-                            <div class="social-box">
-                                <a href=""><span><img src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
-                                <a href=""><span><img src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
-                                <a href=""><span><img src="{{ url_for('.static', filename='icon/gmail.png') }}" alt=""></span></a>
+            <div class="outside info_section layout_padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>About me</h5>
+                            <ul>
+                                <li>randomised</li>
+                                <li>words which</li>
+                                <li>don't look even</li>
+                                <li>slightly</li>
+                                <li>believable. If you</li>
+                                <li>are going to use</li>
+                                <li>a passage of</li>
+                                <li>Lorem Ipsum,</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Services</h5>
+                            <ul>
+                                <li>randomised</li>
+                                <li>words which</li>
+                                <li>don't look even</li>
+                                <li>slightly</li>
+                                <li>believable. If you</li>
+                                <li>are going to use</li>
+                                <li>a passage of</li>
+                                <li>Lorem Ipsum,</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Useful links</h5>
+                            <ul>
+                                <li>randomised</li>
+                                <li>words which</li>
+                                <li>don't look even</li>
+                                <li>slightly</li>
+                                <li>believable. If you</li>
+                                <li>are going to use</li>
+                                <li>a passage of</li>
+                                <li>Lorem Ipsum,</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="social_container">
+                                <h5>Follow Us</h5>
+                                <div class="social-box">
+                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
+                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
+                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/gmail.png') }}" alt=""></span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
+
+        
         <footer class="container-fluid footer_section">
             <p>
                 Copyright &copy; 2022 All Rights Reserved By
@@ -130,9 +130,9 @@
         </footer>
 
 
-        <script type="text/javascript" src="{{ url_for('.static', filename='js/main.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('.static', filename='js/jquery-3.4.1.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('.static', filename='js/bootstrap.js') }}"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </div>
 </body>
 

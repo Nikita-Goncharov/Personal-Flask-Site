@@ -1,6 +1,6 @@
 env/
 .env
-
+.vs/
 *.db
 
 __pycache__
