@@ -1,10 +1,11 @@
-from flask_ import db, login_manager
+from datetime import date
+from flask_ import db, login_manager, admin
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from flask_admin.contrib.sqla import ModelView
 
 class User(db.Model, UserMixin):
-    __tablename__ = 'User'
+    __tablename__ = 'Users'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
@@ -18,13 +19,26 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password_hash, password)
 
 
+# class Service(db.Model):
+#     __tablename__ = 'Services'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(50), unique=True)
+#     photo = db.Column()
+#     description = db.Column(db.Text)
+
+
 class Comment(db.Model):
     __tablename__ = 'Comments'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
-    time = db.Column(db.String(100))
+    time = db.Column(db.String(100), default=date.today().strftime("%B %d, %Y"))
     message = db.Column(db.Text)
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Comment, db.session))

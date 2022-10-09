@@ -55,8 +55,8 @@ a:hover {
     box-shadow: none
 }
 
-div .outside {
-    margin: 30px 0
+.d-flex {
+    padding: 25px 0;
 }
 
 .slider_section {
@@ -162,7 +162,7 @@ div .outside {
 .tasty_section {
     width: 100%;
     height: 500px;
-    background-image: url(../images/tasty-image.png);
+    background-image: url(../images/tasty-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -232,22 +232,59 @@ div .outside {
     background-image: url(../images/next.png)
 }
 
+
 .contact_section input {
-    border: none;
-    outline: 0;
-    border-bottom: .8px solid #252525;
-    width: 90%;
-    margin: 10px 0
+    width: 100%;
+    margin: 10px 0;
+    padding: 7px 10px;
+    border: #838996 solid 1px;
+}
+
+
+
+.contact_section textarea{
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 6px 9px;
+    border: #838996 solid 1px;
+    resize: none;
+}
+
+.contact_section{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contact_section .form, .formtxt{
+    width: 50%;
+}
+
+.formtxt{
+    margin: auto;
+    padding: 10px 30px;
+}
+
+.formtxt h3{
+    margin-bottom: 20px;
+}
+
+.formtxt p{
+    font-size: 17;
+    color: #415159;
 }
 
 .contact_section button {
     border: none;
-    background-color: #fc5d35;
+    width: 50%;
+    background-color: #272727;
     color: #fff;
-    padding: 8px 40px;
+    padding: 7px 20px;
     text-transform: uppercase;
-    font-size: 14px
+    font-size: 17px;
+    font-weight: 600;
 }
+
 
 
 
@@ -269,9 +306,8 @@ div .outside {
 
 .comment-form form {
     text-align: center;
-    width: 90%;
-    padding: 30px;
-    border: 1px solid #f1f1f1;
+    width: 80%;
+    padding: 40px 20px;
     background: #fff;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -281,15 +317,26 @@ div .outside {
 .comment-form input[type=text],
 textarea {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 10px;
     margin: 8px 0;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.comment-form textarea{
+    height: 200px;
+    resize: none;
+}
+
+.comment-form input[type=text]:focus,
+textarea:focus {
+    outline: none;
 }
 
 /* Set a style for all buttons */
-.comment-form input[type=submit] {
-    background-color: #53af57;
+.comment-form button {
+    background-color: #242e8a;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -298,13 +345,26 @@ textarea {
     width: 100%;
 }
 
-.comment-form input[type=submit]:hover {
-    background-color: white;
-    color: #53af57;
-    border: 1px solid #53af57;
+.comment-form button:hover {
+    background-color: #3d4abb;
+}
+
+.comment-img img{
+    margin: 0 8px;
+}
+
+.comment-body h5, small{
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+
+.comment-body p{
+    margin: 4px 5px 10px 5px;
 }
 
 .comment-body {
-    width: 50%;
+    width: 80%;
     overflow-wrap: break-word;
 }

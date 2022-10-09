@@ -1,5 +1,13 @@
-body {
+*{
+  padding: 0;
+  margin: 0;
+}
+
+header, footer{
   font-family: Poppins, sans-serif;
+}
+
+body {
   color: #000;
   background-color: #fff
 }
@@ -9,13 +17,13 @@ body {
   background-color: #f7f7f7
 }
 
-.hero_area.sub_pages {
-  height: auto
+.outside{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.header_section .container-fluid {
-  padding-right: 25px;
-  padding-left: 25px
+.hero_area.sub_pages {
+  height: auto
 }
 
 .header_section .nav_container {
@@ -23,7 +31,7 @@ body {
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 30px;
+  padding: 0 30px;
   color: #343434;
   text-align: center
 }
@@ -39,17 +47,12 @@ a:hover {
   color: initial
 }
 
-.navbar-brand,
-.navbar-brand:hover {
+.navbar-brand{
   text-transform: uppercase;
   font-weight: 700;
   font-size: 24px;
-  color: #fafcfd
 }
 
-div .outside {
-  margin: 30px 0
-}
 
 .navbar-brand {
   display: flex;
@@ -65,75 +68,62 @@ div .outside {
   font-size: 20px;
   font-weight: 700;
   color: #2e2e2d;
-  margin-top: 5px
+  margin-top: 5px;
 }
 
 .custom_nav-container {
   z-index: 99999;
-  padding: 15px 0
+  padding: 15px 0;
 }
 
 .custom_nav-container .navbar-toggler {
-  outline: 0
+  outline: 0;
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
   background-image: url(../images/menu.png);
-  background-size: 55px
+  background-size: 55px;
 }
 
 .carousel-item {
-  height: 100%
-}
-
-.contact_section button {
-  border: none;
-  background-color: #fc5d35;
-  color: #fff;
-  padding: 8px 40px;
-  text-transform: uppercase;
-  font-size: 14px
+  height: 100%;
 }
 
 .info_section ul {
   padding: 0
 }
 
+.info_section{
+  margin-bottom: 30px;
+}
+
 .info_section ul li {
   list-style-type: none;
-  margin: 3px 0
+  margin: 3px 0;
 }
 
 .info_section h5 {
-  margin-bottom: 12px;
-  font-size: 22px
-}
-
-.info_section .social-box {
-  margin: 20px 0
+  font-size: 22px;
 }
 
 .social-box img {
   width: 40px;
-  height: auto
+  height: auto;
 }
 
 .social-box a {
-  margin-right: 5px
+  margin-right: 5px;
 }
 
-.footer_section {
-  background-color: #efeded;
-  padding: 20px 0;
-  font-family: Roboto, sans-serif
+.footer_section{
+  background-color: #EFEDED;
+  padding-top: 20px;
 }
 
-.footer_section p {
+.copyright_text {
   color: #191818;
   margin: 0;
-  text-align: center
-}
-
-.footer_section a {
-  color: #191818
+  text-align: center;
+  padding: 25px 0 7px 0;
+  background-color: #D3D1D1;
 }

@@ -1,43 +1,67 @@
 from flask import Blueprint, redirect, render_template, url_for
 from flask_login import login_required, login_user, logout_user
-from flask_.forms import CommentForm, RegisterForm, LoginForm
+from flask_.forms import CommentForm, RegisterForm, LoginForm, ContactForm
 from flask_.models import User, Comment
 from flask_ import db
+from .send_msg_bot import send_msg_bot
 from datetime import date
-app_blueprint = Blueprint('app_blue', __name__, static_folder='static', template_folder='templates', static_url_path='')
+
+app_blueprint = Blueprint('app_blue', __name__, static_folder='static',
+                        template_folder='templates', static_url_path='')
 
 
 @app_blueprint.route('/', methods=['GET', 'POST'])
 def index():
-    form = CommentForm()
+    comment_form = CommentForm()
+    contact_form = ContactForm()
     comments = Comment.query.all()
-    if form.validate_on_submit():
-        comment = Comment(name=form.client_name.data, message=form.message.data, time=date.today().strftime("%B %d, %Y"))
+
+    if comment_form.validate_on_submit():
+        name=comment_form.client_name.data
+        message=comment_form.message.data
+        time=date.today().strftime("%B %d, %Y")
+        comment = Comment(name=name, message=message)# , time=time     , time=date.today().strftime("%B %d, %Y")
+        send_msg_bot(name=name, message=message, time=time, type_of_message='contact')
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('app_blue.index'))
-    return render_template('flask_/home.html', form=form, comments=comments)
+
+    if contact_form.validate_on_submit():
+        name=contact_form.name.data
+        email=contact_form.email.data
+        message=contact_form.message.data
+        contact = ContactForm(name=name, email=email, message=message)
+        send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
+        return redirect(url_for('app_blue.index'))
+    return render_template('flask_/home.html', comment_form=comment_form, contact_form=contact_form, comments=comments)
+
 
 @app_blueprint.route('/resume')
 def resume():
     return render_template('flask_/resume.html')
 
+
 @app_blueprint.route('/services')
 def services():
     return render_template('flask_/service.html')
+
 
 @app_blueprint.route('/about')
 def about():
     return render_template('flask_/about.html')
 
-@app_blueprint.route('/blog')
-def blog():
-    users = User.query.all()
-    return render_template('flask_/blog.html', users=users)
 
-@app_blueprint.route('/contact')
+@app_blueprint.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('flask_/contact.html')
+    contact_form = ContactForm()
+    if contact_form.validate_on_submit():
+        name=contact_form.name.data
+        email=contact_form.email.data
+        message=contact_form.message.data
+        contact = ContactForm(name=name, email=email, message=message)
+        send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
+        return redirect(url_for('app_blue.index'))
+    return render_template('flask_/contact.html', contact_form=contact_form)
 
 
 @app_blueprint.route('/register', methods=['GET', 'POST'])

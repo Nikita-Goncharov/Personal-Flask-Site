@@ -45,9 +45,6 @@
                                         <a class="nav-link" href="{{ url_for('app_blue.services') }}">Services</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.blog') }}">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
                                     </li>
                                     <li class="nav-item">
@@ -62,22 +59,23 @@
             {% block carousel %}{% endblock %}
         </div>
         
-        <main>
+        <main class="container">
             {% block content %}{% endblock %}
-            <div class="outside info_section layout_padding">
-                <div class="container">
+            
+        </main>
+
+        
+        <footer class="footer_section">
+            <div class="container-fluid info_section">
+                <div>
                     <div class="row">
                         <div class="col-md-3">
-                            <h5>About me</h5>
+                            <h5>About us</h5>
                             <ul>
-                                <li>randomised</li>
-                                <li>words which</li>
-                                <li>don't look even</li>
+                                <li>GitHub</li>
+                                <li>Resume</li>
+                                <li>About page</li>
                                 <li>slightly</li>
-                                <li>believable. If you</li>
-                                <li>are going to use</li>
-                                <li>a passage of</li>
-                                <li>Lorem Ipsum,</li>
                             </ul>
                         </div>
                         <div class="col-md-3">
@@ -87,10 +85,6 @@
                                 <li>words which</li>
                                 <li>don't look even</li>
                                 <li>slightly</li>
-                                <li>believable. If you</li>
-                                <li>are going to use</li>
-                                <li>a passage of</li>
-                                <li>Lorem Ipsum,</li>
                             </ul>
                         </div>
                         <div class="col-md-3">
@@ -100,10 +94,6 @@
                                 <li>words which</li>
                                 <li>don't look even</li>
                                 <li>slightly</li>
-                                <li>believable. If you</li>
-                                <li>are going to use</li>
-                                <li>a passage of</li>
-                                <li>Lorem Ipsum,</li>
                             </ul>
                         </div>
                         <div class="col-md-3">
@@ -119,14 +109,11 @@
                     </div>
                 </div>
             </div>
-        </main>
-
-        
-        <footer class="container-fluid footer_section">
-            <p>
-                Copyright &copy; 2022 All Rights Reserved By
-                <a href="#">Me</a>
-            </p>
+            <div class="copyright_text">
+                <p>
+                    Copyright &copy; 2022 All Rights Reserved By <a href="#">Me</a>
+                </p>
+            </div>
         </footer>
 
 
