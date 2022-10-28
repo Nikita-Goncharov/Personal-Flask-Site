@@ -1,4 +1,4 @@
-from flask_ import create_app
+from flask_.app import create_app
 import config
 
 

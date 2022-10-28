@@ -1,0 +1,36 @@
+{% extends 'base_auth.html' %} 
+
+{% block head %}
+<title>Login</title>
+{% endblock %} 
+
+{% block content %}
+<form method="post">
+  {{ form.csrf_token }}
+  <div>
+    <p>{{ form.email.label }} {{ form.email }}</p>
+
+    {% if form.email.errors %}
+    <ul>
+      {% for error in form.email.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <div>
+    <p>{{ form.password.label }} {{ form.password }}</p>
+
+    {% if form.password.errors %}
+    <ul>
+      {% for error in form.password.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <div>{{ form.login }}</div>
+</form>
+{% endblock %}

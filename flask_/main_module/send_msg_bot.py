@@ -22,19 +22,3 @@ def send_msg_bot(**kwargs):
     if (primary_message):
         requests.get(primary_message)    
     requests.get(main_message)
-
-
-# Hi, everybody.
-# I have python(flask) project structure like this:
-# folder/
-#     module/ 
-#         __init__.py
-#         models.py
-#         ...
-#         need_cofig_variable.py
-#     main.py
-#     config.py
-
-# Code in file like: https://nekobin.com/dacujoraru
-
-# How i can import variable from app.config in file need_cofig_variable.py ?
