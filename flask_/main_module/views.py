@@ -83,4 +83,4 @@ def contact():
         message=contact_form.message.data
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
-    return render_template('auth_module/contact.html', contact_form=contact_form)
+    return render_template('main_module/contact.html', contact_form=contact_form)
