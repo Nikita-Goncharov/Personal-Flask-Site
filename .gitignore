@@ -3,5 +3,7 @@ env/
 .vs/
 *.db
 
+upload/
+
 __pycache__
 *.py[co]

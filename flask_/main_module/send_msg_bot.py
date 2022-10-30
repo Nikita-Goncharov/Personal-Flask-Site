@@ -1,10 +1,10 @@
 import requests
-from config import DevConfig
+from flask import current_app
 
 # function for sending data in telegram bot
 def send_msg_bot(**kwargs):
-    CHAT_ID = DevConfig.CHAT_ID
-    BOT_TOKEN = DevConfig.BOT_TOKEN
+    CHAT_ID = current_app.config['CHAT_ID']
+    BOT_TOKEN = current_app.config['BOT_TOKEN']
     dict_text = {**kwargs}
     text_array = [
         f'{key}: {value}'

@@ -5,6 +5,9 @@
 {% endblock %} 
 
 {% block content %}
+{% if current_user.is_authenticated %}
+  Hi {{ current_user.name }}!   <!-- DO THIS-->
+{% else %}
 <form method="post">
   {{ form.csrf_token }}
   <div>
@@ -31,6 +34,8 @@
     {% endif %}
   </div>
 
-  <div>{{ form.login }}</div>
+  <div><button>Login</button></div>
 </form>
+{% endif %}
+
 {% endblock %}

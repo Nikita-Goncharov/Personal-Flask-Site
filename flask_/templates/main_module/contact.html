@@ -1,10 +1,16 @@
-{% extends 'base.html' %} {% block head %}
+{% extends 'base.html' %} 
+
+
+{% block head %}
 <title>Contact Us</title>
 <link
   rel="stylesheet"
   href="{{ url_for('.static', filename='css/contact_styles.css') }}"
 />
-{% endblock %} {% block carousel %} {% endblock %} {% block content %}
+{% endblock %} 
+{% block carousel %} {% endblock %} 
+
+{% block content %}
 <div class="outside contact_section">
   <div class="formtxt">
     <h3>Have any questions? <br />Let's get in touch!</h3>
