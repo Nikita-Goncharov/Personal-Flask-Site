@@ -58,6 +58,9 @@ def services():
 
         if file and allowed_filename(file.filename):
             filename = secure_filename(file.filename)
+            
+            if not os.path.exists(current_app.config['UPLOAD_FOLDER']):
+                os.mkdir(current_app.config['UPLOAD_FOLDER'])
             img_link = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(img_link)
 

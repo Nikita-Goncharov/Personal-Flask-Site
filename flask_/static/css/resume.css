@@ -1,0 +1,167 @@
+.main-container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.aside{
+    background-color: #1E2939;
+}
+
+.occupation-now{
+    font-size: 14px;  
+    margin: 0 0 19px 0;
+}
+
+.name{
+    font-size: 45px;
+    margin: 0 0 24px 0;
+}
+
+.bio{
+    font-size: 14px;
+    color: #595959;
+    width: 400px;
+    margin: 0 0 40px 0;
+}
+
+.container a{ 
+    text-decoration: none;
+    color: #595959;
+} 
+
+.my-photo{
+    height: 330px;
+    width: 330px;
+    margin-top: 40px;
+}
+
+.name-of-category{
+    color: #000;
+    font-size: 22px;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.university{
+    padding: 0;
+    margin: 0;
+    color: #FB6D3A;
+}
+
+
+.orange-word{
+    color: #FB6D3A;
+}
+
+.managment{
+    padding: 0;
+    margin: 12px 0 0 0;
+}
+
+.projects{
+    margin: 0 0 50px 0;
+}
+
+.date-where{
+    margin: 12px 0 8px 0;
+    color: #A8A8A8;
+    font-size: 12px;
+}
+
+.profession{
+    margin: 0;
+    padding: 0;
+}
+
+.companies{
+    width: 510px;
+}
+
+.sidebar{
+    color: #FFF;
+}
+
+.main-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 1230px;
+    background-color: #FFF;
+    margin: 40px auto;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.main-container li{
+    color: #595959;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.companies, .sidebar-points{
+    padding: 0 0 16px 22px;
+
+}
+
+.projects-list{
+    padding: 0 0 0 18px;
+}
+
+.projects-list li::marker{
+    font-weight: bold;
+    color: #000;
+}
+
+.brackets{
+    color: #000;
+    font-weight: bold;
+}
+
+.projects-list span{
+    color: #595959;
+    
+}
+
+.sidebar-points li{
+    color: #FFF;
+    font-size: 14px;
+    line-height: 24px;
+    list-style: none;
+}
+
+.sidebar-points li::before {
+    content: "•";
+    color: #FB6D3A;
+    display: inline-block;
+    width: 20px;  
+    font-weight: bold;
+    margin-left: -1em;
+}
+
+.black-stripe{
+    color: #000;
+    font-weight: bold;
+}
+
+.type{
+    color: #FFF;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.links {
+    color: #d6d6d6;
+}
+
+.sidebar-class{
+    margin: 50px 0 0 40px;
+}
+
+.sidebar-points{
+    padding: 0 0 0 17px;
+    margin: 0;
+}
+
+.free-content{
+    margin: 80px 288px 125px 80px;
+}
