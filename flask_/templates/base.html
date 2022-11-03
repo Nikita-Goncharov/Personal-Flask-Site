@@ -35,7 +35,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item active">
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ url_for('app_blue.index') }}">Home</a>
                                     </li>
                                     <li class="nav-item">
@@ -47,9 +47,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.about') }}">About</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -60,8 +57,7 @@
         </div>
         
         <main class="container main-container">
-            {% block content %}{% endblock %}
-            
+            {% block content %}{% endblock %} 
         </main>
 
         
@@ -70,39 +66,39 @@
                 <div>
                     <div class="row">
                         <div class="col-md-3">
-                            <h5>About us</h5>
+                            <h5>Useful links</h5>
                             <ul>
-                                <li>GitHub</li>
-                                <li>Resume</li>
-                                <li>About page</li>
-                                <li>slightly</li>
+                                <li><a href="">GitHub</a></li>
+                                <li><a href="">Instagram</a></li>
+                                <li><a href="">Telegram</a></li>
+                                <li><a href="">LinkedIn</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
-                            <h5>Services</h5>
+                            <h5>Sitemap</h5>
                             <ul>
-                                <li>randomised</li>
-                                <li>words which</li>
-                                <li>don't look even</li>
-                                <li>slightly</li>
+                                <li><a class="" href="{{ url_for('app_blue.index') }}">Home</a></li>
+                                <li><a class="" href="{{ url_for('app_blue.resume') }}">Resume</a></li>
+                                <li><a class="" href="{{ url_for('app_blue.services') }}">Services</a></li>
+                                <li><a class="" href="{{ url_for('app_blue.contact') }}">Contact</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
                             <h5>Useful links</h5>
                             <ul>
-                                <li>randomised</li>
-                                <li>words which</li>
-                                <li>don't look even</li>
-                                <li>slightly</li>
+                                <li><a href="">Something</a></li>
+                                <li><a href="">Something</a></li>
+                                <li><a href="">Something</a></li>
+                                <li><a href="">Something</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
                             <div class="social_container">
                                 <h5>Follow Us</h5>
                                 <div class="social-box">
-                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
-                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
-                                    <a href=""><span><img src="{{ url_for('.static', filename='icon/gmail.png') }}" alt=""></span></a>
+                                    <a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/"><span><img src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
+                                    <a target="_blank" href="https://t.me/niksilvia"><span><img src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
+                                    <a target="_blank" href="https://github.com/Nikita-Goncharov"><span><img src="{{ url_for('.static', filename='icon/github.png') }}" alt=""></span></a>
                                 </div>
                             </div>
                         </div>
@@ -111,16 +107,14 @@
             </div>
             <div class="copyright_text">
                 <p>
-                    Copyright &copy; 2022 All Rights Reserved By <a href="#">Me</a>
+                    Copyright &copy; 2022 All Rights Reserved By <a target="_blank" href="https://github.com/Nikita-Goncharov">Me</a>
                 </p>
             </div>
         </footer>
-
-
-        
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% block scripts %}{% endblock %}
 </body>
 
 </html>

@@ -4,7 +4,7 @@ from gevent.pywsgi import WSGIServer
 import config
 
 
-app = create_app(config.DevConfig)
+app = create_app(config.ProdConfig) 
 
 port = int(os.environ.get('PORT', 5000))
 

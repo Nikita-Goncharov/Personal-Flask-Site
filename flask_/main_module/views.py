@@ -17,6 +17,7 @@ ALLOWED_EXTENSIONS = {'jpeg', 'png', 'jpg'}
 def index():
     comment_form = CommentForm()
     contact_form = ContactForm()
+    services = Service.query.all()
     comments = Comment.query.all()
 
     if comment_form.validate_on_submit():
@@ -35,7 +36,7 @@ def index():
         message=contact_form.message.data
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
-    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form, comments=comments)
+    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form, servises=services, comments=comments)
 
 
 @blueprint.route('/resume')
@@ -58,7 +59,7 @@ def services():
 
         if file and allowed_filename(file.filename):
             filename = secure_filename(file.filename)
-            
+
             if not os.path.exists(current_app.config['UPLOAD_FOLDER']):
                 os.mkdir(current_app.config['UPLOAD_FOLDER'])
             img_link = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
@@ -69,12 +70,6 @@ def services():
         db.session.commit() 
         return redirect(url_for('app_blue.services'))
     return render_template('main_module/service.html', service_form=service_form, services=services)
-
-
-
-@blueprint.route('/about')
-def about():
-    return render_template('main_module/about.html')
 
 
 @blueprint.route('/contact', methods=['GET', 'POST'])

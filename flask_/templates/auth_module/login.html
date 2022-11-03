@@ -6,7 +6,7 @@
 
 {% block content %}
 {% if current_user.is_authenticated %}
-  Hi {{ current_user.name }}!   <!-- DO THIS-->
+  Hi {{ current_user.name }}!   
 {% else %}
 <form method="post">
   {{ form.csrf_token }}

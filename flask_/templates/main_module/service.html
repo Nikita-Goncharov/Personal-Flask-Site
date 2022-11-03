@@ -26,6 +26,8 @@
       <div><button>Add service</button></div>
     </form>
 
+  {% if services %}
+  {% for service in services %}
   <div class="container">
     <h2 class="custom_heading">Our Services</h2>
     <p class="custom_heading-text">
@@ -34,8 +36,7 @@
     </p>
     <div class=" layout_padding2">
       <div class="card-deck">
-        {% if services %}
-        {% for service in services %}
+
         <div class="card">
           <img class="card-img-top" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap" />
           <div class="card-body">
@@ -48,12 +49,19 @@
             </div>
           </div>
         </div>
-        {% endfor %}
-        {% endif %}
       </div>
     </div>
-    
   </div>
+  {% endfor %}
+  {% else %}
+  <div class="container">
+    <h2 class="custom_heading">No Services</h2>
+    <p class="custom_heading-text">
+      There are many variations of passages of Lorem Ipsum available, but
+      the majority have
+    </p> 
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
 

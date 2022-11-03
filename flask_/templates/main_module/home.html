@@ -7,214 +7,68 @@
 
 
 {% block carousel %}
-<div class="slider_section position-relative">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="slider_item-box">
-                    <div class="slider_item-container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="slider_item-detail">
-                                        <div>
-                                            <h1>
-                                                Welcome to <br />
-                                                Our Fruits Shop
-                                            </h1>
-                                            <p>
-                                                There are many variations of passages of Lorem
-                                                Ipsum available, but the majority have suffered
-                                                alteration in some form, by injected humour, or
-                                                randomised words which don't look even slightly
-                                                believable.
-                                            </p>
-                                            <div class="d-flex">
-                                                <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                    Shop Now
-                                                </a>
-                                                <a href="" class="text-uppercase custom_dark-btn">
-                                                    Contact Us
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="slider_img-box">
-                                        <div>
-                                            <img src="{{ url_for('.static', filename='images/slide-img.jpg') }}" alt=""
-                                                class="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="slider_item-box">
-                    <div class="slider_item-container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="slider_item-detail">
-                                        <div>
-                                            <h1>
-                                                Welcome to <br />
-                                                Our Fruits Shop
-                                            </h1>
-                                            <p>
-                                                There are many variations of passages of Lorem
-                                                Ipsum available, but the majority have suffered
-                                                alteration in some form, by injected humour, or
-                                                randomised words which don't look even slightly
-                                                believable.
-                                            </p>
-                                            <div class="d-flex">
-                                                <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                    Shop Now
-                                                </a>
-                                                <a href="" class="text-uppercase custom_dark-btn">
-                                                    Contact Us
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="slider_img-box">
-                                        <div>
-                                            <img src="{{ url_for('.static', filename='images/slide-img1.jpg') }}" alt=""
-                                                class="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="slider_item-box">
-                    <div class="slider_item-container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="slider_item-detail">
-                                        <div>
-                                            <h1>
-                                                Welcome to <br />
-                                                Our Fruits Shop
-                                            </h1>
-                                            <p>
-                                                There are many variations of passages of Lorem
-                                                Ipsum available, but the majority have suffered
-                                                alteration in some form, by injected humour, or
-                                                randomised words which don't look even slightly
-                                                believable.
-                                            </p>
-                                            <div class="d-flex">
-                                                <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                    Shop Now
-                                                </a>
-                                                <a href="" class="text-uppercase custom_dark-btn">
-                                                    Contact Us
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="slider_img-box">
-                                        <div>
-                                            <img src="{{ url_for('.static', filename='images/slide-img2.jpg') }}" alt=""
-                                                class="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="custom_carousel-control">
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</div>
+<div class="slideshow-container">
+  <div class="mySlides1">
+    <div class="numbertext">1 / 3</div>
+    <img src="{{ url_for('.static', filename='images/slide-img.jpg') }}" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
 
+  <div class="mySlides1">
+    <div class="numbertext">2 / 3</div>
+    <img src="{{ url_for('.static', filename='images/slide-img2.jpg') }}" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides1">
+    <div class="numbertext">3 / 3</div>
+    <img src="{{ url_for('.static', filename='images/slide-img3.jpg') }}" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
 {% endblock %}
 
 {% block content %}
-<div class="outside service_section">
-    <div class="container">
-        <h2 class="custom_heading">Our Services</h2>
-        <p class="custom_heading-text">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have
-        </p>
-        <div class="">
-            <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-1.png') }}"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">Orange</h5>
-                        <p class="card-text">
-                            There are many variations of passages of Lorem Ipsum
-                            available, but the majority have suffered alteration in some
-                            form, by injected humour, or randomised words which don't look
-                            even slightly believable.
-                        </p>
-                        <div class="d-flex justify-content-center">
-                            <a href="" class="custom_dark-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-2.png') }}"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">Grapes</h5>
-                        <p class="card-text">
-                            There are many variations of passages of Lorem Ipsum
-                            available, but the majority have suffered alteration in some
-                            form, by injected humour, or randomised words which don't look
-                            even slightly believable.
-                        </p>
-                        <div class="d-flex justify-content-center">
-                            <a href="" class="custom_dark-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="{{ url_for('.static', filename='images/card-item-3.png') }}"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">Gauva</h5>
-                        <p class="card-text">
-                            There are many variations of passages of Lorem Ipsum
-                            available, but the majority have suffered alteration in some
-                            form, by injected humour, or randomised words which don't look
-                            even slightly believable.
-                        </p>
-                        <div class="d-flex justify-content-center">
-                            <a href="" class="custom_dark-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
+<div class="service_section outside ">
+  {% if services %}
+  {% for service in services %}
+  <div class="container">
+    <h2 class="custom_heading">Our Services</h2>
+    <p class="custom_heading-text">
+      There are many variations of passages of Lorem Ipsum available, but
+      the majority have
+    </p>
+    <div class=" layout_padding2">
+      <div class="card-deck">
+        
+        <div class="card">
+          <img class="card-img-top" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">{{ service.service_title }}</h5>
+            <p class="card-text">
+              {{ service.description|truncate(10) }}
+            </p>
+            <div class="d-flex justify-content-center">
+              <a href="" class="custom_dark-btn">Read More</a>
             </div>
+          </div>
         </div>
-
+      </div>
     </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="container">
+    <h2 class="custom_heading">No Services</h2>
+    <p class="custom_heading-text">
+      There are many variations of passages of Lorem Ipsum available, but
+      the majority have
+    </p> 
+  </div>
+  {% endif %}
 </div>
 
 <div class=" outside tasty_section">
@@ -253,9 +107,6 @@
                 <span><h5 class="user_name">{{ comment.name }}</h5><small>{{ comment.time }}</small></span>
                 <p class="comment-txt">{{ comment.message }}</p>
             </div>
-            <!-- <div class="comment-date">
-                <p><small>{{ comment.time }}</small></p>
-            </div> -->
         </div>
         {% endfor %}
         {% else %}
@@ -288,4 +139,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('.static', filename='js/carousel.js') }}"></script>
 {% endblock %}

@@ -26,9 +26,6 @@ body {
   height: auto
 }
 
-.header_section .nav_container {
-  margin: 0 auto
-}
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
   padding: 0 30px;
@@ -83,10 +80,6 @@ a:hover {
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
   background-image: url(../images/menu.png);
   background-size: 55px;
-}
-
-.carousel-item {
-  height: 100%;
 }
 
 .info_section ul {
