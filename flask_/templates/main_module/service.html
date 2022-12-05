@@ -11,7 +11,7 @@
 {% block content %}
 <div class="service_section layout_padding ">
 
-  <form method="POST" enctype="multipart/form-data">
+  <!-- <form method="POST" enctype="multipart/form-data">
       {{ service_form.csrf_token }} {% for field in service_form %}
       <div>
         {{ field }} {% if field.errors %}
@@ -24,7 +24,7 @@
       </div>
       {% endfor %}
       <div><button>Add service</button></div>
-    </form>
+    </form> -->
 
   {% if services %}
   {% for service in services %}
@@ -54,11 +54,10 @@
   </div>
   {% endfor %}
   {% else %}
-  <div class="container">
+  <div class="container no-services">
     <h2 class="custom_heading">No Services</h2>
     <p class="custom_heading-text">
-      There are many variations of passages of Lorem Ipsum available, but
-      the majority have
+      Admin will add soon
     </p> 
   </div>
   {% endif %}

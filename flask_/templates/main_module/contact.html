@@ -18,16 +18,17 @@
   </div>
   <div class="form">
     <form method="POST">
-      {{ contact_form.csrf_token }} {% for field in contact_form %}
-      <div>
-        {{ field }} {% if field.errors %}
-        <ul class="errors">
-          {% for error in field.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
+      {{ contact_form.csrf_token }} 
+      {% for field in contact_form %}
+        <div>
+          {{ field }} {% if field.errors %}
+          <ul class="errors">
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
       {% endfor %}
       <div><button>Contact us</button></div>
     </form>

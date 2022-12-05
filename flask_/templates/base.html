@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
     <link href="{{ url_for('.static', filename='css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('.static', filename='css/responsive.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ url_for('.static', filename='icon/ico.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 
@@ -18,7 +19,7 @@
     <div class="wrapper">
         <div class="hero_area sub_pages">
             <header class="header_section">
-                <div class="container">
+                <div class="">
                     <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
                         <a class="navbar-brand" href="{{ url_for('app_blue.index') }}">
                             <img src="{{ url_for('.static', filename='images/logo.png') }}" alt="">
@@ -53,10 +54,11 @@
                     </nav>
                 </div>
             </header>
-            {% block carousel %}{% endblock %}
+            
         </div>
+        {% block carousel %}{% endblock %}
         
-        <main class="container main-container">
+        <main class="main-container">
             {% block content %}{% endblock %} 
         </main>
 
@@ -66,12 +68,11 @@
                 <div>
                     <div class="row">
                         <div class="col-md-3">
-                            <h5>Useful links</h5>
+                            <h5>Links for contact me</h5>
                             <ul>
-                                <li><a href="">GitHub</a></li>
-                                <li><a href="">Instagram</a></li>
-                                <li><a href="">Telegram</a></li>
-                                <li><a href="">LinkedIn</a></li>
+                                <li><a target="_blank" href="https://github.com/Nikita-Goncharov">GitHub</a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/">Instagram</a></li>
+                                <li><a target="_blank" href="https://t.me/niksilvia">Telegram</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
@@ -84,12 +85,12 @@
                             </ul>
                         </div>
                         <div class="col-md-3">
-                            <h5>Useful links</h5>
+                            <h5>Demo of my projects</h5>
                             <ul>
-                                <li><a href="">Something</a></li>
-                                <li><a href="">Something</a></li>
-                                <li><a href="">Something</a></li>
-                                <li><a href="">Something</a></li>
+                                <li><a href="">Not yet</a></li>
+                                <li><a href="">Not yet</a></li>
+                                <li><a href="">Not yet</a></li>
+                                <li><a href="">Not yet</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">

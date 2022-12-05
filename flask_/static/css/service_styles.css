@@ -35,6 +35,11 @@
     text-align: center
 }
 
+.no-services {
+    padding: 50px 20px;
+    border: #000 solid 2px;
+}
+
 a,
 a:focus,
 a:hover {

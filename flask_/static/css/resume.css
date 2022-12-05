@@ -1,6 +1,3 @@
-.main-container {
-    font-family: 'Montserrat', sans-serif;
-}
 
 .aside{
     background-color: #1E2939;
@@ -29,8 +26,7 @@
 } 
 
 .my-photo{
-    height: 330px;
-    width: 330px;
+    width: 100%;
     margin-top: 40px;
 }
 
@@ -83,7 +79,6 @@
 .main-container{
     display: flex;
     justify-content: flex-end;
-    width: 1230px;
     background-color: #FFF;
     margin: 40px auto;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);

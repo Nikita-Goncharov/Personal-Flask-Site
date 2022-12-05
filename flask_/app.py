@@ -3,8 +3,15 @@ from .main_module.views import blueprint as main_blueprint
 from .auth_module.views import blueprint as auth_blueprint
 from .extensions import db, toolbar, login_manager, admin
 from flask_admin.contrib.sqla import ModelView
+from flask_admin.contrib.fileadmin import FileAdmin
 from .auth_module.models import User
 from .main_module.models import Comment, Service
+
+
+class ImageView(FileAdmin):
+    allowed_extensions = ('jpeg', 'png', 'jpg')
+
+
 
 def register_extensions(app):
     db.init_app(app)
@@ -18,7 +25,8 @@ def register_extensions(app):
     admin.template_mode = 'bootstrap3'
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Comment, db.session))
-    admin.add_view(ModelView(Service, db.session))
+    admin.add_view(ModelView(Service, db.session, category='Service'))
+    admin.add_view(ImageView(app.config['UPLOAD_FOLDER'], name='Upload image for service', category='Service'))
 
 def register_blueprints(app):
     app.register_blueprint(main_blueprint)

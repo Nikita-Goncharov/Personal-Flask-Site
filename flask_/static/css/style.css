@@ -1,11 +1,9 @@
 *{
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-header, footer{
-  font-family: Poppins, sans-serif;
-}
 
 body {
   color: #000;
@@ -24,6 +22,11 @@ body {
 
 .hero_area.sub_pages {
   height: auto
+}
+
+.main-container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 

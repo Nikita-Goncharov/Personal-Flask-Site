@@ -11,7 +11,7 @@ blueprint = Blueprint('app_blue', __name__, static_folder='../static',
                         template_folder='../templates', static_url_path='')
 
 
-ALLOWED_EXTENSIONS = {'jpeg', 'png', 'jpg'}
+ALLOWED_EXTENSIONS = ('jpeg', 'png', 'jpg')
 
 @blueprint.route('/', methods=['GET', 'POST'])
 def index():
@@ -36,7 +36,7 @@ def index():
         message=contact_form.message.data
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
-    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form, servises=services, comments=comments)
+    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form, services=services, comments=comments)
 
 
 @blueprint.route('/resume')
