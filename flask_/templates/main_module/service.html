@@ -10,24 +10,6 @@
 
 {% block content %}
 <div class="service_section layout_padding ">
-
-  <!-- <form method="POST" enctype="multipart/form-data">
-      {{ service_form.csrf_token }} {% for field in service_form %}
-      <div>
-        {{ field }} {% if field.errors %}
-        <ul class="errors">
-          {% for error in field.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-      {% endfor %}
-      <div><button>Add service</button></div>
-    </form> -->
-
-  {% if services %}
-  {% for service in services %}
   <div class="container">
     <h2 class="custom_heading">Our Services</h2>
     <p class="custom_heading-text">
@@ -36,7 +18,8 @@
     </p>
     <div class=" layout_padding2">
       <div class="card-deck">
-
+        {% if services %}
+        {% for service in services %}
         <div class="card">
           <img class="card-img-top" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap" />
           <div class="card-body">
@@ -49,18 +32,14 @@
             </div>
           </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <span class="custom_heading-text">
+          Admin will add soon
+        </span>
+        {% endif %}
       </div>
     </div>
   </div>
-  {% endfor %}
-  {% else %}
-  <div class="container no-services">
-    <h2 class="custom_heading">No Services</h2>
-    <p class="custom_heading-text">
-      Admin will add soon
-    </p> 
-  </div>
-  {% endif %}
 </div>
 {% endblock %}
-

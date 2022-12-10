@@ -32,18 +32,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="service_section outside ">
-  {% if services %}
-  {% for service in services %}
-  <div class="">
+<div class="service_section layout_padding ">
+  <div class="container">
     <h2 class="custom_heading">Our Services</h2>
     <p class="custom_heading-text">
       There are many variations of passages of Lorem Ipsum available, but
       the majority have
     </p>
-    <div class=" layout_padding2">
+    <div class="layout_padding2">
       <div class="card-deck">
-        
+        {% if services %}
+        {% for service in services %}
         <div class="card">
           <img class="card-img-top" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap" />
           <div class="card-body">
@@ -56,23 +55,19 @@
             </div>
           </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <p class="custom_heading-text">
+          Admin will add soon
+        </p>
+        {% endif %}
       </div>
     </div>
   </div>
-  {% endfor %}
-  {% else %}
-  <div class="no-services">
-    <h2 class="custom_heading">No Services</h2>
-    <p class="custom_heading-text">
-      Admin will add soon
-    </p> 
-  </div>
-  {% endif %}
 </div>
 
-<div class=" outside img_section">
-  <img src="{{ url_for('.static', filename='/images/tasty-image.jpg') }}" alt="Coding">
-  <h2>WEB ON PYTHON</h2>
+<div class=" outside ">
+  <img class="img_section" src="{{ url_for('.static', filename='/images/tasty-image.jpg') }}" alt="Coding">
 </div>
 
 <div class="outside comment-container">

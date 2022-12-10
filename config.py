@@ -1,9 +1,9 @@
 import os
-from os.path import join, dirname
 from dotenv import load_dotenv
 
-BASE_DIR = join(dirname(__file__), '.env')
-load_dotenv(BASE_DIR)
+BASE_DIR = os.path.dirname(__file__)
+ENV_DIR = os.path.join(BASE_DIR, '.env')
+load_dotenv(ENV_DIR)
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -13,7 +13,7 @@ class Config:
     FLASK_ADMIN_SWATCH = 'cerulean'
     BOT_TOKEN = os.environ.get('BOT_TOKEN')
     CHAT_ID = os.environ.get('CHAT_ID')
-    UPLOAD_FOLDER = os.getcwd() + '/flask_/static/upload'
+    UPLOAD_FOLDER = BASE_DIR + '/flask_/static/upload'
 
 class DevConfig(Config):
     DEBUG = True

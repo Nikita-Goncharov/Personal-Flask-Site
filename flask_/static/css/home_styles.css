@@ -1,10 +1,12 @@
+/* Slideshow section */
+
 .slideshow-container {
   max-width: 90%;
   position: relative;
   margin: auto;
 }
 
-/* Next & previous buttons */
+
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -20,19 +22,19 @@
   user-select: none;
 }
 
-/* Position the "next button" to the right */
+
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a grey background color */
+
 .prev:hover, .next:hover {
   background-color: #f1f1f1;
   color: black;
 }
 
-/* Caption text */
+
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -50,6 +52,23 @@
   padding: 8px 12px;
   position: absolute;
   top: 0;
+}
+
+
+.main-container a,
+.main-container a:focus,
+.main-container a:hover {
+    text-decoration: none;
+}
+
+/* Services */
+
+.layout_padding {
+    padding: 75px 0
+}
+
+.layout_padding2 {
+    padding: 45px 0
 }
 
 .custom_dark-btn {
@@ -81,15 +100,15 @@
     text-align: center
 }
 
-.no-services {
-    padding: 50px 20px;
-    border: #000 solid 2px;
+a,
+a:focus,
+a:hover {
+    text-decoration: none
 }
 
-.main-container a,
-.main-container a:focus,
-.main-container a:hover {
-    text-decoration: none
+a:focus,
+a:hover {
+    color: initial
 }
 
 .service_section .card .card-img-top {
@@ -115,22 +134,12 @@
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3)
 }
 
-.img_section img {
-    width: 100%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center */
+.img_section {
+  width: 100%;
+  height: auto;
 }
 
-.img_section h2 {
-    font-size: 125px;
-    text-align: center;
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase
-}
-
-
+/* Contact section */
 
 .contact_section input {
     width: 100%;
@@ -184,7 +193,7 @@
 
 
 
-
+/* Comment section */
 
 .comment-container {
     display: flex;

@@ -2,22 +2,15 @@
     .hero_area {
         height: auto;
     }
-
-    .slider_section {
-        padding: 50px 0;
-
-    }
 }
 
 @media (max-width: 992px) {
-    .custom_nav-container .nav_search-btn {
+    .custom_nav-container {
         background-position: center;
     }
 
     .service_section .card-deck {
-
         flex-direction: column;
-
     }
 
     .service_section .card-deck .card {
@@ -26,41 +19,7 @@
 }
 
 @media (max-width: 768px) {
-
-    .slider_img-box {
-
-        width: 85%;
-        margin: 65px auto;
-
-    }
-
-    .slider_section .custom_carousel-control {
-
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        width: 105px;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: space-between;
-
-    }
-
-    .fruit_section .fruit_detail-box {
-
-        margin-bottom: 40px;
-        text-align: center;
-
-    }
-
-    .fruit_detail-box>div {
-
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .contact_section {
+    /* .contact_section {
         background-size: 105px;
     }
 
@@ -68,7 +27,7 @@
 
         background-color: transparent;
 
-    }
+    } */
 
     .info_section .col-md-3 {
         text-align: center;
@@ -85,7 +44,7 @@
     }
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 400px) {
     .slider_item-container .slider_item-detail {
 
         text-align: center;
@@ -97,13 +56,13 @@
         justify-content: center;
 
     }
-}
+} */
 
-@media (max-width: 480px) {}
+/* @media (max-width: 480px) {}
 
 @media (max-width: 400px) {}
 
-@media (max-width: 360px) {}
+@media (max-width: 360px) {} */
 
 @media (min-width: 1200px) {
     .container {
