@@ -28,15 +28,8 @@ body {
   text-align: center
 }
 
-a,
-a:focus,
-a:hover {
-  text-decoration: none
-}
-
-a:focus,
-a:hover {
-  color: initial
+.navbar-nav a:hover {
+  text-decoration: underline;
 }
 
 .navbar-brand{

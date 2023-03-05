@@ -35,17 +35,6 @@
     text-align: center
 }
 
-a,
-a:focus,
-a:hover {
-    text-decoration: none
-}
-
-a:focus,
-a:hover {
-    color: initial
-}
-
 .service_section .card .card-img-top {
     width: 50px;
     margin: 55px auto 5px auto
