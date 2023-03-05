@@ -9,116 +9,119 @@
 {% endblock %}
 
 {% block content %}
-<!--Sibe bar-->
-<div class="aside">
-    <img class="my-photo" src="{{ url_for('.static', filename='images/photo.jpg') }}" alt="My photo">
+    <div class="resume">
+        <!--Sibe bar-->
+        <div class="aside">
+            <img class="my-photo" src="{{ url_for('.static', filename='images/photo.jpg') }}" alt="My photo">
 
-    <!--Contact div-->
-    <div class="sidebar-class">
-        <h3 class="name-of-category sidebar">Contacts</h3>
-        <div>
-            <p class="contacts links"><span class="contacts type">N:</span>+38 099 607 65 42</p>
+            <!--Contact div-->
+            <div class="sidebar-class">
+                <h3 class="name-of-category sidebar">Contacts</h3>
+                <div>
+                    <p class="contacts links"><span class="contacts type">N:</span>+38 099 607 65 42</p>
+                </div>
+                <div>
+                    <p class="contacts links"><span class="contacts type">E:</span>nikitagoncarov657@gmail.com</p>
+                </div>
+            </div>
+
+            <!--Tech Skills-->
+            <div class="sidebar-class">
+                <h3 class="name-of-category sidebar">Tech Skills</h3>
+                <ul class="sidebar-points">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>GIT</li>
+                    <li>GitHub</li>
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>Flask</li>
+                    <li>OOP</li>
+                    <li>SQL/MySQL</li>
+                </ul>
+            </div>
+
+            <!--Soft Skills-->
+            <div class="sidebar-class">
+                <h3 class="name-of-category sidebar">Soft Skills</h3>
+                <ul class="sidebar-points">
+                    <li>Adaptability</li>
+                    <li>Communication</li>
+                    <li>Teamwork</li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <p class="contacts links"><span class="contacts type">E:</span>nikitagoncarov657@gmail.com</p>
+        <!--Main content-->
+        <div class="free-content">
+            <!--About me div-->
+            <div>
+                <h4 class="occupation-now">Junior Python Back-End Developer</h4>
+                <h1 class="name">Nikita Goncharov</h1>
+
+                <p class="bio">
+                    Студент-програміст, шукаю підробіток, нові знання та досвід.</p>
+            </div>
+
+            <!--My projects-->
+            <div class="projects">
+                <h3 class="name-of-category">Projects</h3>
+
+                <ol class="projects-list">
+                    <li>
+                        <a href="https://github.com/Nikita-Goncharov/Layout-cat">CatsTemplate
+                        <span>........................................................................................</span>
+                        <span><span class="brackets">[</span> HTML5, CSS3 <span class="brackets">]</span></span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Nikita-Goncharov/DjangoArticles">DjangoArticles
+                        <span>........................................................................................</span>
+                        <span><span class="brackets">[</span> Python, Django <span class="brackets">]</span></span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Nikita-Goncharov/Flask-rotate">Flask-rotate
+                        <span>........................................................................................</span>
+                        <span><span class="brackets">[</span> Python, Flask <span class="brackets">]</span></span></a>
+                    </li>
+                </ol>
+            </div>
+
+            <!--My work expirience-->
+            <div>
+                <h3 class="name-of-category">Work Experience</h3>
+
+
+                <div>
+                    <h4 class="profession">Back-end Developer<span class="orange-word"> For portfolio</span></h4>
+                    <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
+                    <ul class="companies">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Risus commodo viverra maecenas.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h4 class="profession">Front-End Developer<span class="orange-word"> For portfolio</span></h4>
+                    <p class="date-where">September 2020 - 2021   <span class="black-stripe">|</span>   Ukraine</p>
+                    <ul class="companies">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Risus commodo viverra maecenas.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
+                    </ul>
+                </div>
+
+
+            <!--Education-->
+            <div>
+                <h3 class="name-of-category">Education</h3>
+                <h4 class="university">Kharkiv Computer-Technological professional College of NTU "KhPI"</h4>
+                <h5 class="managment">Service of software systems and complexes</h5>
+                <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
+            </div>
         </div>
     </div>
 
-    <!--Tech Skills-->
-    <div class="sidebar-class">
-        <h3 class="name-of-category sidebar">Tech Skills</h3>
-        <ul class="sidebar-points">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>GIT</li>
-            <li>GitHub</li>
-            <li>Python</li>
-            <li>Django</li>
-            <li>Flask</li>
-            <li>OOP</li>
-            <li>SQL/MySQL</li>
-        </ul>
-    </div>
-
-    <!--Soft Skills-->
-    <div class="sidebar-class">
-        <h3 class="name-of-category sidebar">Soft Skills</h3>
-        <ul class="sidebar-points">
-            <li>Adaptability</li>
-            <li>Communication</li>
-            <li>Teamwork</li>
-        </ul>
-    </div>
-</div>
-<!--Main content-->
-<div class="free-content">
-    <!--About me div-->
-    <div>
-        <h4 class="occupation-now">Junior Python Back-End Developer</h4>
-        <h1 class="name">Nikita Goncharov</h1>
-
-        <p class="bio">
-            Студент-програміст, шукаю підробіток, нові знання та досвід.</p>
-    </div>
-
-    <!--My projects-->
-    <div class="projects">
-        <h3 class="name-of-category">Projects</h3>
-
-        <ol class="projects-list">
-            <li>
-                <a href="https://github.com/Nikita-Goncharov/Layout-cat">CatsTemplate
-                <span>........................................................................................</span>
-                <span><span class="brackets">[</span> HTML5, CSS3 <span class="brackets">]</span></span></a>
-            </li>
-            <li>
-                <a href="https://github.com/Nikita-Goncharov/DjangoArticles">DjangoArticles
-                <span>........................................................................................</span>
-                <span><span class="brackets">[</span> Python, Django <span class="brackets">]</span></span></a>
-            </li>
-            <li>
-                <a href="https://github.com/Nikita-Goncharov/Flask-rotate">Flask-rotate
-                <span>........................................................................................</span>
-                <span><span class="brackets">[</span> Python, Flask <span class="brackets">]</span></span></a>
-            </li>
-        </ol>
-    </div>
-
-    <!--My work expirience-->
-    <div>
-        <h3 class="name-of-category">Work Experience</h3>
-
-
-        <div>
-            <h4 class="profession">Back-end Developer<span class="orange-word"> For portfolio</span></h4>
-            <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
-            <ul class="companies">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li>Risus commodo viverra maecenas.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-            </ul>
-        </div>
-
-
-        <div>
-            <h4 class="profession">Front-End Developer<span class="orange-word"> For portfolio</span></h4>
-            <p class="date-where">September 2020 - 2021   <span class="black-stripe">|</span>   Ukraine</p>
-            <ul class="companies">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li>Risus commodo viverra maecenas.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-            </ul>
-        </div>
-
-
-    <!--Education-->
-    <div>
-        <h3 class="name-of-category">Education</h3>
-        <h4 class="university">Kharkiv Computer-Technological professional College of NTU "KhPI"</h4>
-        <h5 class="managment">Service of software systems and complexes</h5>
-        <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
-    </div>
-</div>
 {% endblock %}

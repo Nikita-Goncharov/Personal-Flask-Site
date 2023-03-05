@@ -1,7 +1,7 @@
 from flask import Blueprint, url_for, render_template, redirect
 from .models import User
 from .forms import RegisterForm, LoginForm
-from flask_login import login_required, login_user, logout_user, current_user
+from flask_login import login_required, login_user, logout_user
 from flask_.extensions import db
 
 blueprint = Blueprint('auth_blue', __name__, static_folder='../static',
