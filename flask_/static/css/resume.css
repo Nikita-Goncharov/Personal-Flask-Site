@@ -1,6 +1,21 @@
 
+.resume{
+    display: flex;
+    flex-direction: row;
+    background-color: #FFF;
+    margin: 40px auto;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
 .aside{
+    flex: 1;
+    padding: 0 0 30px 0;
     background-color: #1E2939;
+}
+
+.free-content{
+    flex: 2;
+    padding: 80px 0 0 80px;
 }
 
 .occupation-now{
@@ -16,7 +31,6 @@
 .bio{
     font-size: 14px;
     color: #595959;
-    width: 400px;
     margin: 0 0 40px 0;
 }
 
@@ -43,7 +57,6 @@
     color: #FB6D3A;
 }
 
-
 .orange-word{
     color: #FB6D3A;
 }
@@ -68,20 +81,9 @@
     padding: 0;
 }
 
-.companies{
-    width: 510px;
-}
 
 .sidebar{
     color: #FFF;
-}
-
-.resume{
-    display: flex;
-    justify-content: flex-end;
-    background-color: #FFF;
-    margin: 40px auto;
-    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -157,6 +159,3 @@
     margin: 0;
 }
 
-.free-content{
-    margin: 80px 288px 125px 80px;
-}

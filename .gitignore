@@ -2,7 +2,7 @@ env/
 .env
 .vs/
 *.db
-
+.idea/
 upload/
 
 __pycache__

@@ -21,7 +21,6 @@ body {
   padding-bottom: 2.5rem;
 }
 
-
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
   padding: 0 30px;
   color: #343434;
@@ -41,12 +40,12 @@ body {
 
 .navbar-brand {
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .navbar-brand img {
   width: 45px;
-  margin-right: 5px
+  margin-right: 5px;
 }
 
 .navbar-brand span {
@@ -101,6 +100,10 @@ body {
   min-height: 100vh;
 }
 
+.header_section {
+  background-color: #f3f3f3;
+}
+
 .footer_section{
   position: absolute;
   bottom: 0;
@@ -113,5 +116,5 @@ body {
   margin: 0;
   text-align: center;
   padding: 25px 0 7px 0;
-  background-color: #D3D1D1;
+  background-color: #f3f3f3;
 }

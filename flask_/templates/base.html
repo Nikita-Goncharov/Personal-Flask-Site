@@ -19,40 +19,38 @@
 <body>
     <div class="wrapper">
         <header class="header_section">
-                <div class="">
-                    <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-                        <a class="navbar-brand" href="{{ url_for('app_blue.index') }}">
-                            <img src="{{ url_for('.static', filename='images/logo.png') }}" alt="">
-                            <span>
-                                Web on python
-                            </span>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+            <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+                <a class="navbar-brand" href="{{ url_for('app_blue.index') }}">
+                    <img src="{{ url_for('.static', filename='images/logo.png') }}" alt="">
+                    <span>
+                        Web on python
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.index') }}">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.resume') }}">Resume</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.services') }}">Services</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('app_blue.index') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('app_blue.resume') }}">Resume</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('app_blue.services') }}">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
             </header>
 
         {% block carousel %}{% endblock %}
