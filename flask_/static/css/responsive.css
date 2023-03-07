@@ -65,15 +65,71 @@
 
 
 @media (max-width: 600px) {
+    /* base.html */
+    .footer_section h5 {
+        font-size: 18px;
+    }
+
+    .footer_section .social-box img {
+        width: 30px;
+        height: auto;
+    }
+
+    .copyright_text {
+        font-size: 14px;
+    }
+
+    /* Home and contact */
     .contact_section button {
         width: 100%;
+        font-size: 14px;
+    }
+
+    .formtxt h3 {
+        font-size: 18px;
+    }
+
+    .formtxt p {
+        font-size: 14px;
+    }
+
+    .outside{
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .layout_padding {
+        padding: 25px 0;
+    }
+
+    .comment-form h3 {
+        font-size: 20px;
+    }
+
+    .custom_heading {
+        font-size: 22px;
+    }
+
+    .name {
+        font-size: 35px;
     }
 }
 
-/* @media (max-width: 480px) {}
+@media (max-width: 550px) {
+    .layout_padding {
+        padding: 10px 0;
+    }
+}
 
-@media (max-width: 400px) {}
 
+@media (max-width: 400px) {
+    .layout_padding {
+        padding: 10px 0 0 0;
+    }
+}
+
+
+/*
 @media (max-width: 360px) {} */
 
 

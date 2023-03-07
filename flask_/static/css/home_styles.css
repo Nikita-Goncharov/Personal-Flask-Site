@@ -64,11 +64,7 @@
 /* Services */
 
 .layout_padding {
-    padding: 75px 0
-}
-
-.layout_padding2 {
-    padding: 45px 0
+    padding: 75px 0;
 }
 
 .custom_dark-btn {
@@ -162,11 +158,11 @@
 }
 
 .formtxt h3{
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 .formtxt p{
-    font-size: 17;
     color: #415159;
 }
 
