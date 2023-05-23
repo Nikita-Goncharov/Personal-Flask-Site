@@ -5,7 +5,8 @@ from flask_login import login_required, login_user, logout_user, current_user
 from flask_.extensions import db
 
 blueprint = Blueprint('auth_blue', __name__, static_folder='../static',
-                        template_folder='../templates', static_url_path='')
+                      template_folder='../templates', static_url_path='')
+
 
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
