@@ -1,8 +1,9 @@
 from flask import Blueprint, url_for, render_template, redirect
-from .models import User
-from .forms import RegisterForm, LoginForm
-from flask_login import login_required, login_user, logout_user, current_user
+from flask_login import login_required, login_user, logout_user
+
 from flask_.extensions import db
+from .forms import RegisterForm, LoginForm
+from .models import User
 
 blueprint = Blueprint('auth_blue', __name__, static_folder='../static',
                       template_folder='../templates', static_url_path='')
@@ -30,7 +31,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and user.check_password(form.password.data):
             login_user(user)
-            return redirect(url_for('app_blue.index'))
+            return redirect(url_for('admin.index'))
         return redirect(url_for('auth_blue.login'))
     return render_template('auth_module/login.html', form=form)
 
