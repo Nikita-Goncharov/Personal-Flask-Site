@@ -23,3 +23,12 @@ class TechSkill(db.Model):
     __tablename__ = 'TechSkills'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
+
+
+class WorkExperience(db.Model):
+    __tablename__ = 'WorkExperiences'
+    id = db.Column(db.Integer, primary_key=True)
+    job = db.Column(db.String(100), unique=True)
+    company = db.Column(db.String(100), unique=True)
+    period = db.Column(db.String(100))
+    text = db.Column(db.Text)

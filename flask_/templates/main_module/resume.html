@@ -86,33 +86,20 @@
             <!--My work expirience-->
             <div>
                 <h3 class="name-of-category">Work Experience</h3>
-                <div>
-                    <h4 class="profession">Back-end Developer<span class="orange-word"> For portfolio</span></h4>
-                    <p class="date-where">September 2021 - up to now <span class="black-stripe">|</span> Ukraine</p>
-                    <ul class="companies">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                        </li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Risus commodo viverra maecenas.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                    </ul>
-                </div>
-
-
-                <div>
-                    <h4 class="profession">Front-End Developer<span class="orange-word"> For portfolio</span></h4>
-                    <p class="date-where">September 2020 - 2021 <span class="black-stripe">|</span> Ukraine</p>
-                    <ul class="companies">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                        </li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Risus commodo viverra maecenas.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                    </ul>
-                </div>
-
+                {% if workexperience %}
+                    {% for work in workexperience %}
+                        <div>
+                            <h4 class="profession">{{ work.job }}<span class="orange-word"> {{ work.company }}</span>
+                            </h4>
+                            <p class="date-where">{{ work.period }} <span class="black-stripe">|</span> Ukraine</p>
+                            <div class="companies">
+                                {{ work.text }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="companies">Admin will update soon</div>
+                {% endif %}
 
                 <!--Education-->
                 <div>
@@ -127,5 +114,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('.static', filename='js/checking-gitprofile.js') }}"></script>
+    <script type="module" src="{{ url_for('.static', filename='js/checking-gitprofile.js') }}"></script>
 {% endblock %}

@@ -1,14 +1,16 @@
+import {GITHUBAPI_TOKEN, GITHUBAPI_URL} from './gitAPIToken.js'
+
 const projectOL = document.querySelector(".projects-list")
 
-async function checkingNewRepositories() {
 
+async function checkingNewRepositories() {
     let i = 0
 
-    let response = await fetch("https://api.github.com/users/Nikita-Goncharov/repos", {
+    let response = await fetch(GITHUBAPI_URL, {
         method: "GET",
         headers: {
             "Accept": "application/vnd.github+json",
-            "Authorization": "Bearer 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",
+            "Authorization": `Bearer ${GITHUBAPI_TOKEN}`,
             "X-GitHub-Api-Version": "2022-11-28"
         }
     })

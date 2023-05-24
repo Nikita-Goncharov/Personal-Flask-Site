@@ -5,7 +5,7 @@ from flask_admin.contrib.sqla import ModelView
 from .auth_module.models import User
 from .auth_module.views import blueprint as auth_blueprint
 from .extensions import db, toolbar, login_manager, admin
-from .main_module.models import Comment, Service, TechSkill
+from .main_module.models import Comment, Service, TechSkill, WorkExperience
 from .main_module.views import blueprint as main_blueprint
 
 
@@ -26,6 +26,7 @@ def register_extensions(app):
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Comment, db.session))
     admin.add_view(ModelView(TechSkill, db.session))
+    admin.add_view(ModelView(WorkExperience, db.session))
     admin.add_view(ModelView(Service, db.session, category='Service'))
     admin.add_view(ImageView(app.config['UPLOAD_FOLDER'], name='Upload image for service', category='Service'))
 

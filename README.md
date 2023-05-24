@@ -7,12 +7,6 @@
 
 Дані з форми зв'яку та повідомлення про новий коментар відсилаються адміну у телеграм за допомогою бота.
 
-У планах:
-
-* Парсер для github аккаунту, щоб на сторінці з резюме завжди була оновлена інформація
-* Покращити дизайн, зробити адаптивним
-* Покращити процес авторизації та реєстрації
-
 Preview: [Web on python](http://develop352.pythonanywhere.com/)<br>
 
 ### Для запуску на своєму комп'ютері:
@@ -26,12 +20,20 @@ Preview: [Web on python](http://develop352.pythonanywhere.com/)<br>
 * Створити бота у телеграмі за допомогою [BotFather](https://t.me/botfather?start=botostore).
 * Скопіювати кудись токен(який дав BotFather)
   та [знайдений вами id чату з ботом якого ви створили](https://awd.in.ua/yak-otrimati-id-chata-dlya-bota-telegram.html)
+* Створити файл по шляху ***flask_/static/js/gitAPIToken.js*** та вставити код:
+  ```js
+    const GITHUBAPI_TOKEN = "GitHubToken"
+    const GITHUBAPI_URL = "https://api.github.com/users/USERNAME/repos"
+    export {GITHUBAPI_TOKEN, GITHUBAPI_URL}
+  ```
 * Створити .env файл для персональних змінних: ***touch .env***
 * Відкрити у будь-якому редакторі тексту або у консолі та вставити:
-  > SECRET_KEY='будь яка строка з букв, чисел та символів'<br>
-  > SQLALCHEMY_DATABASE_URI='mysql://username:password@host:port/database_name'<br>
-  > CHAT_ID='Ваш id чату у телеграмі з створеним ботом'<br>
-  > BOT_TOKEN='токен бота, який при створенні надає вам BotFather'<br>
+  ```python
+  SECRET_KEY='будь яка строка з букв, чисел та символів'
+  SQLALCHEMY_DATABASE_URI='mysql://username:password@host:port/database_name'
+  CHAT_ID='Ваш id чату у телеграмі з створеним ботом'
+  BOT_TOKEN='токен бота, який при створенні надає вам BotFather'
+  ```
 * У файлі main.py змінити **create_app(config.ProdConfig)** на **create_app(config.DevConfig)**, для застосування
   конфігурації для розробки.
 * І тепер можна нарешті запустити сайт, для цього у cmd або у terminal, у папці з main.py запустити команду:

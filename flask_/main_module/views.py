@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 from flask_.extensions import db
 from .forms import CommentForm, ContactForm, ServiceForm
-from .models import Comment, Service, TechSkill
+from .models import Comment, Service, TechSkill, WorkExperience
 from .send_msg_bot import send_msg_bot
 
 blueprint = Blueprint('app_blue', __name__, static_folder='../static',
@@ -45,8 +45,8 @@ def index():
 @blueprint.route('/resume')
 def resume():
     techskills = TechSkill.query.all()
-
-    return render_template('main_module/resume.html', techskills=techskills)
+    workexperience = WorkExperience.query.all()
+    return render_template('main_module/resume.html', techskills=techskills, workexperience=workexperience)
 
 
 def allowed_filename(filename):
