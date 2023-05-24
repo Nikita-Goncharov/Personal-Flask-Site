@@ -1,4 +1,5 @@
 from datetime import date
+
 from flask_.extensions import db
 
 
@@ -18,3 +19,7 @@ class Comment(db.Model):
     message = db.Column(db.Text)
 
 
+class TechSkill(db.Model):
+    __tablename__ = 'TechSkills'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True)

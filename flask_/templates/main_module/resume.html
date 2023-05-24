@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Resume</title>
-<link rel="stylesheet" href="{{ url_for('.static', filename='css/resume.css') }}" />
+    <title>Resume</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/resume.css') }}"/>
 {% endblock %}
 
 {% block carousel %}
@@ -29,15 +29,13 @@
             <div class="sidebar-class">
                 <h3 class="name-of-category sidebar">Tech Skills</h3>
                 <ul class="sidebar-points">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>GIT</li>
-                    <li>GitHub</li>
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>Flask</li>
-                    <li>OOP</li>
-                    <li>SQL/MySQL</li>
+                    {% if techskills %}
+                        {% for techskill in  techskills %}
+                            <li>{{ techskill.name }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Admin will update soon</li>
+                    {% endif %}
                 </ul>
             </div>
 
@@ -69,18 +67,18 @@
                 <ol class="projects-list">
                     <li>
                         <a href="https://github.com/Nikita-Goncharov/Layout-cat">CatsTemplate
-                        <span>---</span>
-                        <span><span class="brackets">[</span> HTML5, CSS3 <span class="brackets">]</span></span></a>
+                            <span><span class="brackets">[</span> HTML5, CSS3 <span class="brackets">]</span></span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://github.com/Nikita-Goncharov/DjangoArticles">DjangoArticles
-                        <span>---</span>
-                        <span><span class="brackets">[</span> Python, Django <span class="brackets">]</span></span></a>
+                            <span><span class="brackets">[</span> Python, Django <span class="brackets">]</span></span>
+                        </a>
                     </li>
                     <li>
                         <a href="https://github.com/Nikita-Goncharov/Flask-rotate">Flask-rotate
-                        <span>---</span>
-                        <span><span class="brackets">[</span> Python, Flask <span class="brackets">]</span></span></a>
+                            <span><span class="brackets">[</span> Python, Flask <span class="brackets">]</span></span>
+                        </a>
                     </li>
                 </ol>
             </div>
@@ -88,13 +86,13 @@
             <!--My work expirience-->
             <div>
                 <h3 class="name-of-category">Work Experience</h3>
-
-
                 <div>
                     <h4 class="profession">Back-end Developer<span class="orange-word"> For portfolio</span></h4>
-                    <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
+                    <p class="date-where">September 2021 - up to now <span class="black-stripe">|</span> Ukraine</p>
                     <ul class="companies">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Risus commodo viverra maecenas.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
@@ -104,9 +102,11 @@
 
                 <div>
                     <h4 class="profession">Front-End Developer<span class="orange-word"> For portfolio</span></h4>
-                    <p class="date-where">September 2020 - 2021   <span class="black-stripe">|</span>   Ukraine</p>
+                    <p class="date-where">September 2020 - 2021 <span class="black-stripe">|</span> Ukraine</p>
                     <ul class="companies">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Risus commodo viverra maecenas.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
@@ -114,14 +114,18 @@
                 </div>
 
 
-            <!--Education-->
-            <div>
-                <h3 class="name-of-category">Education</h3>
-                <h4 class="university">Kharkiv Computer-Technological professional College of NTU "KhPI"</h4>
-                <h5 class="managment">Service of software systems and complexes</h5>
-                <p class="date-where">September 2021 - up to now   <span class="black-stripe">|</span>   Ukraine</p>
+                <!--Education-->
+                <div>
+                    <h3 class="name-of-category">Education</h3>
+                    <h4 class="university">Kharkiv Computer-Technological professional College of NTU "KhPI"</h4>
+                    <h5 class="managment">Service of software systems and complexes</h5>
+                    <p class="date-where">September 2021 - up to now <span class="black-stripe">|</span> Ukraine</p>
+                </div>
             </div>
         </div>
     </div>
+{% endblock %}
 
+{% block scripts %}
+    <script src="{{ url_for('.static', filename='js/checking-gitprofile.js') }}"></script>
 {% endblock %}

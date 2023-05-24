@@ -1,17 +1,19 @@
-from flask import Blueprint, redirect, render_template, url_for, current_app
-from .forms import CommentForm, ContactForm, ServiceForm
-from .models import Comment, Service
-from flask_.extensions import db
-from .send_msg_bot import send_msg_bot
-from datetime import date
-from werkzeug.utils import secure_filename
 import os
+from datetime import date
+
+from flask import Blueprint, redirect, render_template, url_for, current_app
+from werkzeug.utils import secure_filename
+
+from flask_.extensions import db
+from .forms import CommentForm, ContactForm, ServiceForm
+from .models import Comment, Service, TechSkill
+from .send_msg_bot import send_msg_bot
 
 blueprint = Blueprint('app_blue', __name__, static_folder='../static',
-                        template_folder='../templates', static_url_path='')
-
+                      template_folder='../templates', static_url_path='')
 
 ALLOWED_EXTENSIONS = ('jpeg', 'png', 'jpg')
+
 
 @blueprint.route('/', methods=['GET', 'POST'])
 def index():
@@ -21,9 +23,9 @@ def index():
     comments = Comment.query.all()
 
     if comment_form.validate_on_submit():
-        name=comment_form.client_name.data
-        message=comment_form.message.data
-        time=date.today().strftime("%B %d, %Y")
+        name = comment_form.client_name.data
+        message = comment_form.message.data
+        time = date.today().strftime("%B %d, %Y")
         comment = Comment(name=name, message=message)
         send_msg_bot(name=name, message=message, time=time, type_of_message='comment')
         db.session.add(comment)
@@ -31,17 +33,20 @@ def index():
         return redirect(url_for('app_blue.index'))
 
     if contact_form.validate_on_submit():
-        name=contact_form.name.data
-        email=contact_form.email.data
-        message=contact_form.message.data
+        name = contact_form.name.data
+        email = contact_form.email.data
+        message = contact_form.message.data
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
-    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form, services=services, comments=comments)
+    return render_template('main_module/home.html', comment_form=comment_form, contact_form=contact_form,
+                           services=services, comments=comments)
 
 
 @blueprint.route('/resume')
 def resume():
-    return render_template('main_module/resume.html')
+    techskills = TechSkill.query.all()
+
+    return render_template('main_module/resume.html', techskills=techskills)
 
 
 def allowed_filename(filename):
@@ -67,7 +72,7 @@ def services():
 
         service = Service(service_title=title, description=description, filename=filename)
         db.session.add(service)
-        db.session.commit() 
+        db.session.commit()
         return redirect(url_for('app_blue.services'))
     return render_template('main_module/service.html', service_form=service_form, services=services)
 
@@ -76,9 +81,9 @@ def services():
 def contact():
     contact_form = ContactForm()
     if contact_form.validate_on_submit():
-        name=contact_form.name.data
-        email=contact_form.email.data
-        message=contact_form.message.data
+        name = contact_form.name.data
+        email = contact_form.email.data
+        message = contact_form.message.data
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
     return render_template('main_module/contact.html', contact_form=contact_form)
