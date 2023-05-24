@@ -1,139 +1,147 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Home</title>
-<link rel="stylesheet" href="{{ url_for('.static', filename='css/home_styles.css') }}">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/home_styles.css') }}">
 {% endblock %}
 
 
 {% block carousel %}
-<div class="slideshow-container">
-  <div class="mySlides1">
-    <div class="numbertext">1 / 3</div>
-    <img src="{{ url_for('.static', filename='images/slide-img.jpg') }}" style="width:100%">
-    <div class="text">First Slide</div>
-  </div>
+    <div class="slideshow-container">
+        <div class="mySlides1">
+            <div class="numbertext">1 / 3</div>
+            <img src="{{ url_for('.static', filename='images/slide-img.jpg') }}" style="width:100%">
+            <div class="text">First Slide</div>
+        </div>
 
-  <div class="mySlides1">
-    <div class="numbertext">2 / 3</div>
-    <img src="{{ url_for('.static', filename='images/slide-img2.jpg') }}" style="width:100%">
-    <div class="text">Second Slide</div>
-  </div>
+        <div class="mySlides1">
+            <div class="numbertext">2 / 3</div>
+            <img src="{{ url_for('.static', filename='images/slide-img2.jpg') }}" style="width:100%">
+            <div class="text">Second Slide</div>
+        </div>
 
-  <div class="mySlides1">
-    <div class="numbertext">3 / 3</div>
-    <img src="{{ url_for('.static', filename='images/slide-img3.jpg') }}" style="width:100%">
-    <div class="text">Third Slide</div>
-  </div>
+        <div class="mySlides1">
+            <div class="numbertext">3 / 3</div>
+            <img src="{{ url_for('.static', filename='images/slide-img3.jpg') }}" style="width:100%">
+            <div class="text">Third Slide</div>
+        </div>
 
-  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-</div>
+        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class="service_section layout_padding ">
-  <div class="container">
-    <h2 class="custom_heading">Our Services</h2>
-    <p class="custom_heading-text">
-      There are many variations of passages of Lorem Ipsum available, but
-      the majority have
-    </p>
-    <div class="layout_padding2">
-      <div class="card-deck">
-        {% if services %}
-        {% for service in services %}
-        <div class="card">
-          <img class="card-img-top" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">{{ service.service_title }}</h5>
-            <p class="card-text">
-              {{ service.description|truncate(10) }}
+    <div class="service_section layout_padding ">
+        <div class="container">
+            <h2 class="custom_heading">Our Services</h2>
+            <p class="custom_heading-text">
+                There are many variations of passages of Lorem Ipsum available, but
+                the majority have
             </p>
-            <div class="d-flex justify-content-center">
-              <a href="" class="custom_dark-btn">Read More</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        {% else %}
-        <p class="custom_heading-text">
-          Admin will add soon
-        </p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="outside">
-  <img class="img_section" src="{{ url_for('.static', filename='/images/tasty-image.jpg') }}" alt="Coding">
-</div>
-
-<div class="outside comment-container">
-    <div class="comment-form">
-        <form method="POST">
-            <h3>Add your comment</h3>
-            {{ comment_form.csrf_token }}
-            {% for field in comment_form %}
-            <div>
-                {{ field }}
-                {% if field.errors %}
-                <ul class="errors">
-                    {% for error in field.errors %}
-                    <li>{{ error }}</li>{% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            {% endfor %}
-            <div><button>Add comment</button></div>
-        </form>
-    </div>
-    <div class="comments">
-        {% if comments %}
-        {% for comment in comments %}
-        <div class="comment">
-            <div class="comment-img">
-                <img width="32px" height="32px" src="{{ url_for('.static', filename='images/user.png') }}" alt="User icon">
-            </div>
-            <div class="comment-body">
-                <span><h5 class="user_name">{{ comment.name }}</h5><small>{{ comment.time }}</small></span>
-                <p class="comment-txt">{{ comment.message }}</p>
+            <div class="layout_padding2">
+                <div class="card-deck">
+                    {% if services %}
+                        {% for service in services %}
+                            <div class="card">
+                                <img class="card-img-top"
+                                     src="{{ url_for('.static', filename='upload/'+ service.filename) }}"
+                                     alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ service.service_title }}</h5>
+                                    <p class="card-text">
+                                        {{ service.description|truncate(10) }}
+                                    </p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ url_for('app_blue.service', id=service.id) }}"
+                                           class="custom_dark-btn">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="custom_heading-text">
+                            Admin will add soon
+                        </p>
+                    {% endif %}
+                </div>
             </div>
         </div>
-        {% endfor %}
-        {% else %}
-        <h2>No comment</h2>
-        {% endif %}
     </div>
-</div>
 
-<div class="outside contact_section">
-    <div class="formtxt">
-        <h3>Have any questions? <br>Let's get in touch!</h3>
-        <p>Contact us if your are thinking of redesigning your garden,
-            adding some garden features or simply looking for a bit of garden maintenance.</p>
+    <div class="outside">
+        <img class="img_section" src="{{ url_for('.static', filename='/images/tasty-image.jpg') }}" alt="Coding">
     </div>
-    <div class="form">
-        <form method="POST">
-            {{ contact_form.csrf_token }}
-            {% for field in contact_form %}
-            <div>
-                {{ field }}
-                {% if field.errors %}
-                <ul class="errors">
-                    {% for error in field.errors %}
-                    <li>{{ error }}</li>{% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            {% endfor %}
-            <div><button>Contact us</button></div>
-        </form>
+
+    <div class="outside comment-container">
+        <div class="comment-form">
+            <form method="POST">
+                <h3>Add your comment</h3>
+                {{ comment_form.csrf_token }}
+                {% for field in comment_form %}
+                    <div>
+                        {{ field }}
+                        {% if field.errors %}
+                            <ul class="errors">
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div>
+                    <button>Add comment</button>
+                </div>
+            </form>
+        </div>
+        <div class="comments">
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="comment-img">
+                            <img width="32px" height="32px" src="{{ url_for('.static', filename='images/user.png') }}"
+                                 alt="User icon">
+                        </div>
+                        <div class="comment-body">
+                            <span><h5 class="user_name">{{ comment.name }}</h5><small>{{ comment.time }}</small></span>
+                            <p class="comment-txt">{{ comment.message }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2>No comment</h2>
+            {% endif %}
+        </div>
     </div>
-</div>
+
+    <div class="outside contact_section">
+        <div class="formtxt">
+            <h3>Have any questions? <br>Let's get in touch!</h3>
+            <p>Contact us if your are thinking of redesigning your garden,
+                adding some garden features or simply looking for a bit of garden maintenance.</p>
+        </div>
+        <div class="form">
+            <form method="POST">
+                {{ contact_form.csrf_token }}
+                {% for field in contact_form %}
+                    <div>
+                        {{ field }}
+                        {% if field.errors %}
+                            <ul class="errors">
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div>
+                    <button>Contact us</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('.static', filename='js/carousel.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/carousel.js') }}"></script>
 {% endblock %}

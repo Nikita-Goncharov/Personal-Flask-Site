@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/service_item.css') }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="left-column">
+        <img class="" src="{{ url_for('.static', filename='upload/'+ service.filename) }}" alt="Card image cap">
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+            <span>Service</span>
+            <h1>{{ service.service_title }}</h1>
+            <p>{{ service.description }}</p>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+            <span>148$</span>
+            <a href="#" class="cart-btn">Add to cart</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
