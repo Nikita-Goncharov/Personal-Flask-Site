@@ -21,6 +21,7 @@ idna==3.3
 itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
+mysqlclient==2.1.1
 Pillow==9.2.0
 pycodestyle==2.8.0
 pycparser==2.21

@@ -15,11 +15,11 @@ def send_msg_bot(**kwargs):
 
     if dict_text['type_of_message'] == 'comment':
         primary_message = f'''
-            https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&parse_mode=Markdown&text=' + 'New comment: 
+            https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&parse_mode=Markdown&text=New comment: 
         '''
     elif dict_text['type_of_message'] == 'contact':
         primary_message = f'''
-            https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&parse_mode=Markdown&text=' + 'New contact: 
+            https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&parse_mode=Markdown&text=New contact: 
         '''
 
     main_message = f'''
