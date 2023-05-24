@@ -1,8 +1,7 @@
-env/
 .env
-.vs/
-*.db
 .idea/
+.vs/
+
 upload/
 
 __pycache__
