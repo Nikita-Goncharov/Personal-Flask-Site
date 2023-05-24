@@ -77,6 +77,12 @@ def services():
     return render_template('main_module/service.html', service_form=service_form, services=services)
 
 
+@blueprint.route('/service/<int:id>')
+def service(id):
+    service_item = Service.query.get(id)
+    return render_template('main_module/service_item.html', service=service_item)
+
+
 @blueprint.route('/contact', methods=['GET', 'POST'])
 def contact():
     contact_form = ContactForm()
