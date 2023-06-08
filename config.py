@@ -15,7 +15,7 @@ class Config:
     FLASK_ADMIN_SWATCH = 'cerulean'
     BOT_TOKEN = os.environ.get('BOT_TOKEN')
     CHAT_ID = os.environ.get('CHAT_ID')
-    UPLOAD_FOLDER = BASE_DIR + '/flask_/static/upload'
+    UPLOAD_FOLDER = BASE_DIR + '/flask_site/static/upload'
 
 
 class DevConfig(Config):

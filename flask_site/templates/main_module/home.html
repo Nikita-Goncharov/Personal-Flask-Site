@@ -44,13 +44,14 @@
                     {% if services %}
                         {% for service in services %}
                             <div class="card">
-                                <img class="card-img-top"
-                                     src="{{ url_for('.static', filename='upload/'+ service.filename) }}"
-                                     alt="Card image cap"/>
+                                <div class="card-img-top">
+                                    <img src="{{ url_for('.static', filename='upload/'+ service.filename) }}"
+                                         alt="Card image cap"/>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ service.service_title }}</h5>
                                     <p class="card-text">
-                                        {{ service.description|truncate(10) }}
+                                        {{ service.description|truncate(20) }}
                                     </p>
                                     <div class="d-flex justify-content-center">
                                         <a href="{{ url_for('app_blue.service', id=service.id) }}"

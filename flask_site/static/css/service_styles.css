@@ -1,9 +1,5 @@
 .layout_padding {
-    padding: 75px 0
-}
-
-.layout_padding2 {
-    padding: 45px 0
+    padding: 75px 0;
 }
 
 .custom_dark-btn {
@@ -13,11 +9,8 @@
     width: 145px;
     outline: 0;
     color: #f7f7f7;
+    background-color: #000;
     border: 1px solid transparent
-}
-
-.custom_dark-btn {
-    background-color: #000
 }
 
 .custom_dark-btn:hover {
@@ -32,22 +25,24 @@
 }
 
 .custom_heading-text {
-    text-align: center
+    text-align: center;
 }
 
-.service_section .card .card-img-top {
-    width: 50px;
-    margin: 55px auto 5px auto
+.card-img-top img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .service_section .card {
+    height: 20%;
     text-align: center;
     box-sizing: border-box;
-    position: relative
+    position: relative;
 }
 
 .service_section .card .card-title {
-    color: #fc5d35
+    color: #fc5d35;
 }
 
 .service_section .card:hover {
@@ -56,4 +51,9 @@
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
     -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3)
+}
+
+.img_section {
+    width: 100%;
+    height: auto;
 }

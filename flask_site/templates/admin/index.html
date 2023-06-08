@@ -1,0 +1,17 @@
+{% extends 'admin/master.html' %}
+
+{#{% block brand %}#}
+{#    <a class="brand" href="{{ url_for("app_blue.index") }}">Web on python</a>#}
+{#{% endblock %}#}
+
+{% block main_menu %}
+    {{ super() }}
+    <ul class="nav">
+        <li><a href="{{ url_for("auth_blue.logout") }}">Logout</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block body %}
+    <p>Hello world</p>
+{% endblock %}

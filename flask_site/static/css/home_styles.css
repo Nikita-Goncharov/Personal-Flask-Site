@@ -1,57 +1,57 @@
 /* Slideshow section */
 
 .slideshow-container {
-  max-width: 90%;
-  position: relative;
-  margin: auto;
+    max-width: 90%;
+    position: relative;
+    margin: auto;
 }
 
 
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
 
 
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 
 .prev:hover, .next:hover {
-  background-color: #f1f1f1;
-  color: black;
+    background-color: #f1f1f1;
+    color: black;
 }
 
 
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
 
 
@@ -74,11 +74,8 @@
     width: 145px;
     outline: 0;
     color: #f7f7f7;
+    background-color: #000;
     border: 1px solid transparent
-}
-
-.custom_dark-btn {
-    background-color: #000
 }
 
 .custom_dark-btn:hover {
@@ -93,22 +90,24 @@
 }
 
 .custom_heading-text {
-    text-align: center
+    text-align: center;
 }
 
-.service_section .card .card-img-top {
-    width: 50px;
-    margin: 55px auto 5px auto
+.card-img-top img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .service_section .card {
+    height: 20%;
     text-align: center;
     box-sizing: border-box;
-    position: relative
+    position: relative;
 }
 
 .service_section .card .card-title {
-    color: #fc5d35
+    color: #fc5d35;
 }
 
 .service_section .card:hover {
@@ -120,8 +119,8 @@
 }
 
 .img_section {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 /* Contact section */
@@ -133,7 +132,7 @@
     border: #838996 solid 1px;
 }
 
-.contact_section textarea{
+.contact_section textarea {
     width: 100%;
     height: 100px;
     margin: 10px 0;
@@ -142,27 +141,27 @@
     resize: none;
 }
 
-.contact_section{
+.contact_section {
     display: flex;
     flex-direction: row;
 }
 
-.form, .formtxt{
+.form, .formtxt {
     width: 50%;
     margin: 30px 0;
 }
 
-.formtxt{
+.formtxt {
     margin: auto;
     padding: 10px 30px;
 }
 
-.formtxt h3{
+.formtxt h3 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.formtxt p{
+.formtxt p {
     color: #415159;
 }
 
@@ -178,7 +177,6 @@
 }
 
 
-
 /* Comment section */
 
 .comment-container {
@@ -186,7 +184,7 @@
     flex-direction: row;
 }
 
-.comments, .comment-form{
+.comments, .comment-form {
     width: 50%;
     margin: 30px 0;
 }
@@ -214,7 +212,7 @@ textarea {
     border-radius: 2px;
 }
 
-.comment-form textarea{
+.comment-form textarea {
     height: 200px;
     resize: none;
 }
@@ -239,18 +237,18 @@ textarea:focus {
     background-color: #3d4abb;
 }
 
-.comment-img img{
+.comment-img img {
     margin: 0 8px;
 }
 
-.comment-body h5, small{
+.comment-body h5, small {
     display: inline-block;
     margin: 0 5px;
     vertical-align: middle;
 }
 
 
-.comment-body p{
+.comment-body p {
     margin: 4px 5px 10px 5px;
 }
 

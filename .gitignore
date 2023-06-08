@@ -3,7 +3,7 @@
 .vs/
 
 upload/
-flask_/static/js/gitAPIToken.js
+flask_site/static/js/gitAPIToken.js
 
 __pycache__
 *.py[co]

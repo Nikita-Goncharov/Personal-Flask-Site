@@ -1,6 +1,6 @@
 from datetime import date
 
-from flask_.extensions import db
+from flask_site.extensions import db
 
 
 class Service(db.Model):

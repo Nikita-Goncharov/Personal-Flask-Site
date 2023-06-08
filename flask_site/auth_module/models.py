@@ -1,7 +1,7 @@
-from flask_.extensions import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from flask_site.extensions import db, login_manager
 
 
 class User(db.Model, UserMixin):
@@ -22,4 +22,3 @@ class User(db.Model, UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
-

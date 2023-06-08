@@ -4,7 +4,7 @@ from datetime import date
 from flask import Blueprint, redirect, render_template, url_for, current_app
 from werkzeug.utils import secure_filename
 
-from flask_.extensions import db
+from flask_site.extensions import db
 from .forms import CommentForm, ContactForm, ServiceForm
 from .models import Comment, Service, TechSkill, WorkExperience
 from .send_msg_bot import send_msg_bot
