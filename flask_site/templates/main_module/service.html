@@ -9,41 +9,5 @@
 {% endblock %}
 
 {% block content %}
-    <div class="service_section layout_padding ">
-        <div class="container">
-            <h2 class="custom_heading">Our Services</h2>
-            <p class="custom_heading-text">
-                There are many variations of passages of Lorem Ipsum available, but
-                the majority have
-            </p>
-            <div class="layout_padding2">
-                <div class="card-deck">
-                    {% if services %}
-                        {% for service in services %}
-                            <div class="card">
-                                <div class="card-img-top">
-                                    <img src="{{ url_for('.static', filename='upload/'+ service.filename) }}"
-                                         alt="Card image cap"/>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ service.service_title }}</h5>
-                                    <p class="card-text">
-                                        {{ service.description|truncate(20) }}
-                                    </p>
-                                    <div class="d-flex justify-content-center">
-                                        <a href="{{ url_for('app_blue.service', id=service.id) }}"
-                                           class="custom_dark-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p class="custom_heading-text">
-                            Admin will add soon
-                        </p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'main_module/components/service_table.html' %}
 {% endblock %}

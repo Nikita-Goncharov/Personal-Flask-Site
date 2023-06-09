@@ -1,4 +1,5 @@
-from flask import Flask, session
+from flask import Flask, session, redirect, url_for
+from flask_admin import BaseView, expose
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla import ModelView
 
@@ -21,6 +22,12 @@ class MyModelView(ModelView):
         return session.get('is_logged')
 
 
+class LogoutAdminView(BaseView):
+    @expose('/')
+    def logout_admin(self):
+        return redirect(url_for('auth_blue.logout'))
+
+
 def register_extensions(app):
     db.init_app(app)
     if app.config['DEBUG']:
@@ -30,17 +37,14 @@ def register_extensions(app):
     login_manager.login_view = 'auth_blue.login'
     admin.init_app(app)
     admin.name = 'Web on Python'
-    # with app.app_context():
-    #     admin.url = url_for('app_blue.index')
-
     admin.template_mode = 'bootstrap3'
     admin.add_view(MyModelView(User, db.session))
     admin.add_view(MyModelView(Comment, db.session))
     admin.add_view(MyModelView(TechSkill, db.session))
-    # admin.add_menu_item('Logout')
     admin.add_view(MyModelView(WorkExperience, db.session))
     admin.add_view(MyModelView(Service, db.session, category='Service'))
     admin.add_view(ImageView(app.config['UPLOAD_FOLDER'], name='Upload image for service', category='Service'))
+    admin.add_view(LogoutAdminView(name='Logout', endpoint='logout'))
 
 
 def register_blueprints(app):

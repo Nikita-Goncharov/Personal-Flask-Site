@@ -1,0 +1,28 @@
+<div class="outside contact_section">
+    <div class="formtxt">
+        <h3>Have any questions? <br/>Let's get in touch!</h3>
+        <p>
+            Contact us if you are thinking of redesigning your garden, adding some
+            garden features or simply looking for a bit of garden maintenance.
+        </p>
+    </div>
+    <div class="form">
+        <form method="POST">
+            {{ contact_form.csrf_token }}
+            {% for field in contact_form %}
+                <div>
+                    {{ field }} {% if field.errors %}
+                    <ul class="errors">
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                </div>
+            {% endfor %}
+            <div>
+                <button>Contact us</button>
+            </div>
+        </form>
+    </div>
+</div>

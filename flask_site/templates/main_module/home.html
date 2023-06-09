@@ -3,6 +3,8 @@
 {% block head %}
     <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/home_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/service_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/contact_styles.css') }}">
 {% endblock %}
 
 
@@ -32,43 +34,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="service_section layout_padding ">
-        <div class="container">
-            <h2 class="custom_heading">Our Services</h2>
-            <p class="custom_heading-text">
-                There are many variations of passages of Lorem Ipsum available, but
-                the majority have
-            </p>
-            <div class="layout_padding2">
-                <div class="card-deck">
-                    {% if services %}
-                        {% for service in services %}
-                            <div class="card">
-                                <div class="card-img-top">
-                                    <img src="{{ url_for('.static', filename='upload/'+ service.filename) }}"
-                                         alt="Card image cap"/>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ service.service_title }}</h5>
-                                    <p class="card-text">
-                                        {{ service.description|truncate(20) }}
-                                    </p>
-                                    <div class="d-flex justify-content-center">
-                                        <a href="{{ url_for('app_blue.service', id=service.id) }}"
-                                           class="custom_dark-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p class="custom_heading-text">
-                            Admin will add soon
-                        </p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'main_module/components/service_table.html' %}
 
     <div class="outside">
         <img class="img_section" src="{{ url_for('.static', filename='/images/tasty-image.jpg') }}" alt="Coding">
@@ -115,32 +81,7 @@
         </div>
     </div>
 
-    <div class="outside contact_section">
-        <div class="formtxt">
-            <h3>Have any questions? <br>Let's get in touch!</h3>
-            <p>Contact us if your are thinking of redesigning your garden,
-                adding some garden features or simply looking for a bit of garden maintenance.</p>
-        </div>
-        <div class="form">
-            <form method="POST">
-                {{ contact_form.csrf_token }}
-                {% for field in contact_form %}
-                    <div>
-                        {{ field }}
-                        {% if field.errors %}
-                            <ul class="errors">
-                                {% for error in field.errors %}
-                                    <li>{{ error }}</li>{% endfor %}
-                            </ul>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                <div>
-                    <button>Contact us</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    {% include 'main_module/components/contactus_form.html' %}
 {% endblock %}
 
 {% block scripts %}
