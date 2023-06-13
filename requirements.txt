@@ -25,6 +25,7 @@ mysqlclient==2.1.1
 Pillow==9.2.0
 pycodestyle==2.8.0
 pycparser==2.21
+PyMySQL==1.0.3
 python-dotenv==0.20.0
 requests==2.28.1
 SQLAlchemy==1.4.39

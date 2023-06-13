@@ -8,6 +8,7 @@ class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_title = db.Column(db.String(30))
     description = db.Column(db.Text)
+    price = db.Column(db.Integer)
     filename = db.Column(db.String(100))
 
 

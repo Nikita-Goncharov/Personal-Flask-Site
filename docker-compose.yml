@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=Flask
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    container_name: "mysql"
+
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3306" ]
+      interval: 6s
+      timeout: 4s
+      retries: 5
+
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python main.py
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
