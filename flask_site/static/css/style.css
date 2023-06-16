@@ -96,17 +96,11 @@ body {
     margin-right: 5px;
 }
 
-.wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
 .header_section {
     background-color: #f3f3f3;
 }
 
 .footer_section {
-    position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
