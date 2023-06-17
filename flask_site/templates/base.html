@@ -5,114 +5,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('.static', filename='css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('.static', filename='css/style.css') }}" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="{{ url_for('.static', filename='icon/ico.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
-    <link href="{{ url_for('.static', filename='css/responsive.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('.static', filename='css/responsive.css') }}" rel="stylesheet"/>
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header_section">
-            <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-                <a class="navbar-brand" href="{{ url_for('app_blue.index') }}">
-                    <img src="{{ url_for('.static', filename='images/logo.png') }}" alt="">
-                    <span>
+<div class="wrapper">
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+            <a class="navbar-brand" href="{{ url_for('app_blue.index') }}">
+                <img src="{{ url_for('.static', filename='images/logo.png') }}" alt="">
+                <span>
                         Web on python
                     </span>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('app_blue.index') }}">Home</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('app_blue.index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('app_blue.resume') }}">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('app_blue.services') }}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block carousel %}{% endblock %}
+
+    <main class="main-container">
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <footer class="footer_section">
+        <div class="container-fluid info_section">
+            <div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Links for contact me</h5>
+                        <ul>
+                            <li><a target="_blank" href="https://github.com/Nikita-Goncharov">GitHub</a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/">Instagram</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('app_blue.resume') }}">Resume</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('app_blue.services') }}">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('app_blue.contact') }}">Contact us</a>
-                            </li>
+                            <li><a target="_blank" href="https://t.me/niksilvia">Telegram</a></li>
                         </ul>
                     </div>
-                </div>
-            </nav>
-            </header>
-
-        {% block carousel %}{% endblock %}
-        
-        <main class="main-container">
-            {% block content %}{% endblock %} 
-        </main>
-
-        
-        <footer class="footer_section">
-            <div class="container-fluid info_section">
-                <div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h5>Links for contact me</h5>
-                            <ul>
-                                <li><a target="_blank" href="https://github.com/Nikita-Goncharov">GitHub</a></li>
-                                <li><a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/">Instagram</a></li>
-                                <li><a target="_blank" href="https://t.me/niksilvia">Telegram</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Sitemap</h5>
-                            <ul>
-                                <li><a class="" href="{{ url_for('app_blue.index') }}">Home</a></li>
-                                <li><a class="" href="{{ url_for('app_blue.resume') }}">Resume</a></li>
-                                <li><a class="" href="{{ url_for('app_blue.services') }}">Services</a></li>
-                                <li><a class="" href="{{ url_for('app_blue.contact') }}">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Demo of my projects</h5>
-                            <ul>
-                                <li><a href="">Not yet</a></li>
-                                <li><a href="">Not yet</a></li>
-                                <li><a href="">Not yet</a></li>
-                                <li><a href="">Not yet</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="social_container">
-                                <h5>Follow Us</h5>
-                                <div class="social-box">
-                                    <a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/"><span><img src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
-                                    <a target="_blank" href="https://t.me/niksilvia"><span><img src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
-                                    <a target="_blank" href="https://github.com/Nikita-Goncharov"><span><img src="{{ url_for('.static', filename='icon/github.png') }}" alt=""></span></a>
-                                </div>
+                    <div class="col-md-3">
+                        <h5>Sitemap</h5>
+                        <ul>
+                            <li><a class="" href="{{ url_for('app_blue.index') }}">Home</a></li>
+                            <li><a class="" href="{{ url_for('app_blue.resume') }}">Resume</a></li>
+                            <li><a class="" href="{{ url_for('app_blue.services') }}">Services</a></li>
+                            <li><a class="" href="{{ url_for('app_blue.contact') }}">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Demo of my projects</h5>
+                        <ul>
+                            <li><a href="">Not yet</a></li>
+                            <li><a href="">Not yet</a></li>
+                            <li><a href="">Not yet</a></li>
+                            <li><a href="">Not yet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="social_container">
+                            <h5>Follow Us</h5>
+                            <div class="social-box">
+                                <a target="_blank" href="https://www.instagram.com/_nikita__goncharov_/"><span><img
+                                        src="{{ url_for('.static', filename='icon/instagram.png') }}" alt=""></span></a>
+                                <a target="_blank" href="https://t.me/niksilvia"><span><img
+                                        src="{{ url_for('.static', filename='icon/telegram.png') }}" alt=""></span></a>
+                                <a target="_blank" href="https://github.com/Nikita-Goncharov"><span><img
+                                        src="{{ url_for('.static', filename='icon/github.png') }}" alt=""></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copyright_text">
-                <p>
-                    Copyright &copy; 2022 All Rights Reserved By <a target="_blank" href="https://github.com/Nikita-Goncharov">Me</a>
-                </p>
-            </div>
-        </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    {% block scripts %}{% endblock %}
+        </div>
+        <div class="copyright_text">
+            <p>
+                Copyright &copy; 2022 All Rights Reserved By <a target="_blank"
+                                                                href="https://github.com/Nikita-Goncharov">Me</a>
+            </p>
+        </div>
+    </footer>
+</div>
+<script src="{{ url_for('.static', filename='js/setting-minheight-page.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+{% block scripts %}{% endblock %}
 </body>
 
 </html>
