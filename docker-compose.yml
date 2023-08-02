@@ -9,6 +9,8 @@ services:
     ports:
       - "3307:3306" # for localhost port 3307 because i already have local mysql
     container_name: "mysql"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
 
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3306" ]
@@ -26,3 +28,4 @@ services:
         condition: service_healthy
     ports:
       - "5000:5000"
+
