@@ -1,8 +1,8 @@
 FROM python:3.10
 
-COPY . .
-WORKDIR .
+WORKDIR /site
+COPY . /site
 
-RUN pip install -r ./requirements.txt
+RUN pip install -r /site/requirements.txt
 
 #CMD ["python", "main.py"]

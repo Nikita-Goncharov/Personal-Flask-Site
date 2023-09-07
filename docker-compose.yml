@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   mysql:
@@ -7,7 +7,7 @@ services:
       - MYSQL_DATABASE=Flask
       - MYSQL_ROOT_PASSWORD=root
     ports:
-      - "3306:3306"
+      - "33077:3306"
     container_name: "mysql"
 
     healthcheck:
@@ -16,13 +16,20 @@ services:
       timeout: 4s
       retries: 5
 
+    volumes:
+      - mysql_data:/var/lib/mysql
+
   site:
     build:
       context: .
       dockerfile: Dockerfile
-    command: python main.py
+    command: python /site/main.py
     depends_on:
       mysql:
         condition: service_healthy
     ports:
       - "5000:5000"
+
+
+volumes:
+  mysql_data:
