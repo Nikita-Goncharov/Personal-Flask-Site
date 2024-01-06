@@ -14,7 +14,7 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         name = form.name.data
-        email = form.email.data
+        email = form.email.data  # TODO: check if user already in DB
         user = User(name=name, email=email)
         user.set_password(form.password1.data)
         db.session.add(user)
