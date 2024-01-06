@@ -9,6 +9,8 @@ services:
     ports:
       - "33077:3306"
     container_name: "mysql"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
 
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3306" ]

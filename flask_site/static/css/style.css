@@ -18,7 +18,8 @@ body {
 .main-container {
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 2.5rem;
+    padding-bottom: 100px;
+    /*margin-bottom: 30px;*/
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
@@ -96,20 +97,19 @@ body {
     margin-right: 5px;
 }
 
-.wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
 .header_section {
     background-color: #f3f3f3;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .footer_section {
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
     width: 100%;
-    height: 2.5rem;
 }
 
 .copyright_text {
