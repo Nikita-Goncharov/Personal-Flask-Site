@@ -2,10 +2,7 @@ import {GITHUBAPI_TOKEN, GITHUBAPI_URL} from './gitAPIToken.js'
 
 const projectOL = document.querySelector(".projects-list")
 
-
 async function checkingNewRepositories() {
-    let i = 0
-
     let response = await fetch(GITHUBAPI_URL, {
         method: "GET",
         headers: {
@@ -17,9 +14,12 @@ async function checkingNewRepositories() {
     if (response.ok) {
         let json = await response.json();
         projectOL.innerHTML = ""
+        let i = 0
         for (let repo of json) {
+            if (i === 5) {
+                break;
+            }
 
-            i++;
             projectOL.innerHTML += `
             <li>
                 <a href="${repo["svn_url"]}">${repo["name"]}
@@ -27,16 +27,13 @@ async function checkingNewRepositories() {
                 </a>
             </li>
             `
-
-            if (i === 5) {
-                break;
-            }
+            i++;
         }
     } else {
-        console.error("Ошибка HTTP: " + response.status);
+        console.error("Error request to GitHub profile: " + response.status);
     }
 }
 
-(async () => checkingNewRepositories())()
+checkingNewRepositories()
 setInterval(() => checkingNewRepositories(), 1000 * 60 * 60 * 72) // Every 3 days
 
