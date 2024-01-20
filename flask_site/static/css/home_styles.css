@@ -1,7 +1,7 @@
 /* Slideshow section */
 
 .slideshow-container {
-    max-width: 90%;
+    width: 90%;
     position: relative;
     margin: auto;
 }
