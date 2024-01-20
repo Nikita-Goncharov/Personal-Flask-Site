@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, session, redirect, url_for
 from flask_admin import BaseView, expose
 from flask_admin.contrib.fileadmin import FileAdmin
@@ -61,5 +63,18 @@ def create_app(config):
     with app.app_context():
         # db.drop_all()
         db.create_all()
+
+        with open("admin_data.json", "r") as file:
+            json_dict = json.load(file)
+            name = json_dict.get("name", "Admin")
+            email = json_dict.get("email", "admin@gmail.com")
+            password = json_dict.get("password", "12345678")
+            is_user_exists = User.query.filter_by(email=email)
+            if is_user_exists.count() == 0:
+                admin_user = User(name=name, email=email)
+                admin_user.is_admin = True
+                admin_user.set_password(password)
+                db.session.add(admin_user)
+                db.session.commit()
 
     return app
