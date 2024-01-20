@@ -2,6 +2,7 @@ from flask import Blueprint, url_for, render_template, redirect, session
 from flask_login import login_required, login_user, logout_user
 
 from flask_site.extensions import db
+from flask_site.main_module.models import ShopBasket
 from .forms import RegisterForm, LoginForm
 from .models import User
 
@@ -14,12 +15,21 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         name = form.name.data
-        email = form.email.data  # TODO: check if user already in DB
-        user = User(name=name, email=email)
-        user.set_password(form.password1.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('auth_blue.login'))
+        email = form.email.data
+        is_user_exists = User.query.filter_by(email=email)
+        if is_user_exists.count() == 0:
+            user = User(name=name, email=email)
+            user.set_password(form.password1.data)
+
+            shop_basket = ShopBasket(price=0)
+            db.session.add(shop_basket)
+            db.session.commit()
+            user.basket_id = shop_basket.id
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('auth_blue.login'))
+        else:  # TODO: show error to user
+            return render_template('auth_module/register.html', form=form)
     return render_template('auth_module/register.html', form=form)
 
 
