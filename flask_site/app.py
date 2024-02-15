@@ -8,7 +8,7 @@ from flask_admin.contrib.sqla import ModelView
 from .auth_module.models import User
 from .auth_module.views import blueprint as auth_blueprint
 from .extensions import db, toolbar, login_manager, admin
-from .main_module.models import Comment, Service, TechSkill, WorkExperience, TelegramAdmin
+from .main_module.models import Comment, Service, TechSkill, WorkExperience, TelegramAdmin, ShopBasket
 from .main_module.views import blueprint as main_blueprint
 
 
@@ -68,11 +68,16 @@ def create_app(config):
             json_dict = json.load(file)
             name = json_dict.get("name", "Admin")
             email = json_dict.get("email", "admin@gmail.com")
+            is_admin = json_dict.get("is_admin", False)
             password = json_dict.get("password", "12345678")
             is_user_exists = User.query.filter_by(email=email)
             if is_user_exists.count() == 0:
                 admin_user = User(name=name, email=email)
-                admin_user.is_admin = True
+                basket = ShopBasket()
+                db.session.add(basket)
+                db.session.commit()
+                admin_user.is_admin = is_admin
+                admin_user.basket_id = basket.id
                 admin_user.set_password(password)
                 db.session.add(admin_user)
                 db.session.commit()

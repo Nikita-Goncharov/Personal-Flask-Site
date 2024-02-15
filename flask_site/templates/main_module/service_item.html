@@ -23,11 +23,20 @@
         <!-- Product Pricing -->
         <div class="product-price">
             <span>{{ service.price }} ₴</span>
-            <a href="#" class="cart-btn">Add to cart</a>
+            <button onclick="addServiceInBasket({{ service.id }})" class="cart-btn">
+                Add to cart
+            </button>
         </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
+    <script>
+        // href="{{ url_for("app_blue.add_service_in_basket", service_id=service.id) }}"
+        // onclick="addServiceInBasket({{ service.id }})"
+        function addServiceInBasket(id) {
+            fetch(`/add_service_in_basket/${id}`)
+        }
 
+    </script>
 {% endblock %}

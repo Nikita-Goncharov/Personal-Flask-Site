@@ -2,11 +2,12 @@ import os
 from datetime import date
 
 from flask import Blueprint, redirect, render_template, url_for, current_app
+from flask_login import current_user, login_required
 from werkzeug.utils import secure_filename
 
 from flask_site.extensions import db
 from .forms import CommentForm, ContactForm, ServiceForm
-from .models import Comment, Service, TechSkill, WorkExperience
+from .models import Comment, Service, TechSkill, WorkExperience, ShopBasketService
 from .send_msg_bot import send_msg_bot
 
 blueprint = Blueprint('app_blue', __name__, static_folder='../static',
@@ -93,3 +94,20 @@ def contact():
         send_msg_bot(name=name, email=email, message=message, type_of_message='contact')
         return redirect(url_for('app_blue.index'))
     return render_template('main_module/contact.html', contact_form=contact_form)
+
+
+@login_required
+@blueprint.route('/shop_basket/<int:id>')
+def shop_basket(id):
+    pass
+    # return render_template()
+
+
+@login_required
+@blueprint.route('/add_service_in_basket/<int:service_id>')
+def add_service_in_basket(service_id):
+    user = current_user
+    shop_basket_service = ShopBasketService(basket_id=user.basket_id, service_id=service_id)
+    db.session.add(shop_basket_service)
+    db.session.commit()
+    return redirect(url_for("app_blue.shop_basket"))
