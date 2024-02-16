@@ -11,6 +11,9 @@ class Service(db.Model):
     price = db.Column(db.Integer)
     filename = db.Column(db.String(100))
 
+    def as_dict(self):
+        return {column.name: getattr(self, column.name) for column in self.__table__.columns}
+
 
 class Comment(db.Model):
     __tablename__ = 'comments'

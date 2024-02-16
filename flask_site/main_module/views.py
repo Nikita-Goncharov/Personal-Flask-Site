@@ -1,3 +1,4 @@
+import json
 import os
 from datetime import date
 
@@ -99,8 +100,20 @@ def contact():
 @login_required
 @blueprint.route('/shop_basket/<int:id>')
 def shop_basket(id):
-    pass
-    # return render_template()
+    return render_template("main_module/shop_basket.html", id=id)
+
+
+@login_required
+@blueprint.route("/get_shop_basket_services/<int:id>", methods=["POST"])
+def shop_basket_services(id):
+    services = []  # {...service}
+    user = current_user
+    # backet = ShopBasket.query.get(user.basket_id)  # TODO: check if not exists
+    basket_services = ShopBasketService.query.filter_by(basket_id=user.basket_id)
+    for basket_service in basket_services:
+        service = Service.query.filter_by(id=basket_service.service_id).first()
+        services.append(service.as_dict())
+    return json.dumps({"services": services})
 
 
 @login_required
@@ -110,4 +123,4 @@ def add_service_in_basket(service_id):
     shop_basket_service = ShopBasketService(basket_id=user.basket_id, service_id=service_id)
     db.session.add(shop_basket_service)
     db.session.commit()
-    return redirect(url_for("app_blue.shop_basket"))
+    return redirect(url_for("app_blue.shop_basket", id=user.basket_id))
