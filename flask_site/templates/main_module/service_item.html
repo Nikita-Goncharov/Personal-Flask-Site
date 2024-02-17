@@ -32,11 +32,14 @@
 
 {% block scripts %}
     <script>
-        // href="{{ url_for("app_blue.add_service_in_basket", service_id=service.id) }}"
-        // onclick="addServiceInBasket({{ service.id }})"
         function addServiceInBasket(id) {
             fetch(`/add_service_in_basket/${id}`)
+                .then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url
+                    }
+                })
+                .catch(error => console.error('Error:', error))
         }
-
     </script>
 {% endblock %}

@@ -42,7 +42,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user)
             session.update({'is_logged': True})
-            return redirect(url_for('admin.index'))
+            return redirect(url_for('app_blue.index'))
         return redirect(url_for('auth_blue.login'))
     return render_template('auth_module/login.html', form=form)
 

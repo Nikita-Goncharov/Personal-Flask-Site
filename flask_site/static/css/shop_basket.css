@@ -3,33 +3,8 @@
 }
 
 img {
-    width: 100%;
+    width: 50%;
     height: auto;
-    vertical-align: sub;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-.clr {
-    clr: both;
-}
-
-.align-left {
-    text-align: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
-.align-center {
-    text-align: center;
 }
 
 html {
@@ -66,14 +41,6 @@ html {
     display: inline-block;
     color: #e94343;
     font-size: 1.4em;
-
-    /*&:hover {*/
-    /*    color: darken(#1d1e22, 10%);*/
-    /*}*/
-
-    /*.icon {*/
-    /*    margin-top: 2px;*/
-    /*}*/
 }
 
 .btn-checkout {
@@ -100,77 +67,17 @@ html {
 }
 
 .item {
+    margin: 30px auto;
+    width: 90%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     position: relative;
     display: flex;
+}
 
-    /*.inner_container {*/
-    /*    width: 40%;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*    align-items: center;*/
-    /*}*/
-
-    /*img {*/
-    /*    border-radius: 10px 0 0 10px;*/
-    /*}*/
-
-    /*.preview {*/
-    /*    width: 20%;*/
-
-    /*    ul {*/
-    /*        margin: 0;*/
-    /*        padding: 0;*/
-    /*        list-style: none;*/
-    /*        position: relative;*/
-    /*        height: 100%;*/
-    /*    }*/
-
-    /*    li {*/
-    /*        position: absolute;*/
-    /*        top: 0;*/
-    /*        opacity: 0;*/
-
-    /*        &.active {*/
-    /*            opacity: 1;*/
-    /*        }*/
-    /*    }*/
-    /*}*/
-
-    /*.details {*/
-    /*    padding: 0px 30px;*/
-    /*    position: relative;*/
-    /*    overflow: hidden;*/
-    /*    width: 40%;*/
-    /*    display: flex;*/
-    /*    flex-direction: column;*/
-    /*    justify-content: space-evenly;*/
-
-    /*    h3 {*/
-    /*        margin: 0;*/
-    /*        position: relative;*/
-    /*        z-index: 1;*/
-    /*        font-size: 2.6em;*/
-    /*        !*font-family: "Amatic SC", cursive;*!*/
-    /*    }*/
-
-    /*    p {*/
-    /*        font-size: 1em;*/
-    /*    }*/
-
-    /*    input[type="number"] {*/
-    /*        width: 50px;*/
-    /*        height: 30px;*/
-    /*        padding: 2px;*/
-    /*        outline: none;*/
-    /*        border-radius: 5px;*/
-    /*        border: none;*/
-    /*        border: 1px solid #ccc;*/
-    /*    }*/
-    /*}*/
+.item:first-child {
+    margin-top: 60px;
 }
 
 .summary {
@@ -179,23 +86,10 @@ html {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     margin-bottom: 80px;
-
-    /*.meta-data {*/
-    /*    border-right: 1px solid #eee;*/
-    /*    padding-right: 10%;*/
-    /*}*/
-
-    /*.total {*/
-    /*    font-size: 2em;*/
-    /*    text-align: center;*/
-    /*    line-height: 65px;*/
-    /*}*/
 }
 
 .container {
-    /*max-width: 1140px;*/
     margin: 0;
-    /*padding: 0 50px;*/
     margin-top: 200px;
 }
 
@@ -219,29 +113,12 @@ html {
 .btn-summary {
     display: flex;
     justify-content: space-around;
-    /*font-family: "Amatic SC", cursive;*/
 }
 
 .btn-reverse {
     background-color: #fff;
     color: #478298;
     border: 1px solid #478298;
-}
-
-.delivery-payment {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-}
-
-.delivery-address,
-.payment-details {
-    width: 49%;
-    border-radius: 10px;
-    box-shadow: 0 0 5px #00000030;
-    background-color: #fff;
-    padding: 0px 30px 30px 30px;
-    margin-bottom: 20px;
 }
 
 h3 {
@@ -278,7 +155,6 @@ input {
 }
 
 h1 {
-    /*font-family: "Amatic SC", cursive;*/
     font-size: 4em;
 }
 
@@ -391,10 +267,6 @@ h1 {
         margin: 10px 0;
     }
 
-    .delivery-payment {
-        margin-top: 60px;
-    }
-
     .coupon {
         flex-direction: column;
         padding: 30px 0px;
@@ -407,10 +279,6 @@ h1 {
     .btn-checkout {
         font-size: 1.6em;
     }
-
-    .logo {
-        width: 50%;
-    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -418,9 +286,6 @@ h1 {
         font-size: 1.2em;
     }
 
-    /*.container {*/
-    /*    padding: 0 30px;*/
-    /*}*/
     .btn-remove {
         font-size: 1.2em;
     }

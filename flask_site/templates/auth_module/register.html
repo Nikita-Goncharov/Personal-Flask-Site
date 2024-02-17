@@ -1,8 +1,13 @@
-{% extends 'base_auth.html' %}
+{% extends 'base.html' %}
 
 
 {% block head %}
     <title>Register</title>
+    <!--TODO: refactor styles-->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/authorization.css') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -61,7 +66,7 @@
                 {% endif %}
             </div>
 
-            <button>Register</button>
+            <button class="register-btn">Register</button>
         </form>
     {% endif %}
 {% endblock %}

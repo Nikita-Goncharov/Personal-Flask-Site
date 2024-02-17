@@ -14,109 +14,8 @@
 
 {% block content %}
     <div class="cart">
-        <div class="container">
-            <ul class="items">
-                <li class="grid_4 item">
-                    <a href="#" class="btn-remove">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                    <div class="preview">
-                        <img src="https://assets.cookfood.net/product_916_2793.jpg"/>
-                    </div>
-                    <div class="details" data-price="15.50">
-                        <h3>
-                            Lasagne Al Forno
-                        </h3>
-                        <p>Serves 4 (1480g)</p>
-
-                    </div>
-                    <div class="inner_container">
-
-                        <div class="col_1of2 align-center picker">
-                            <p>
-                                <a href="#" class="btn-quantity plus">
-                                    <i class="fa-solid fa-plus"></i>
-                                </a>
-                            <div class="col_1of2 quantity-text">
-                                <p><span class="current_quantity">1</span> @ £15.50</p>
-                            </div>
-                            <a href="#" class="btn-quantity minus">
-                                <i class="fa-solid fa-minus"></i>
-                            </a>
-                            </p>
-                            <input type="hidden" class="quantity_field" name="quantity" data-price="15.50" value="1"/>
-                        </div>
-                    </div>
-
-                </li>
-                {#                <li class="grid_4 item">#}
-                {#                    <a href="#" class="btn-remove">#}
-                {#                        <i class="far fa-trash-alt"></i>#}
-                {#                    </a>#}
-                {#                    <div class="preview">#}
-                {#                        <img src="https://assets.cookfood.net/product_811.jpg"/>#}
-                {#                    </div>#}
-                {#                    <div class="details" data-price="2.49">#}
-                {#                        <h3>#}
-                {#                            Garlic Ciabatta#}
-                {#                        </h3>#}
-                {#                        <p>Serves 4</p>#}
-                {##}
-                {#                    </div>#}
-                {#                    <div class="inner_container">#}
-                {##}
-                {#                        <div class="col_1of2 align-center picker">#}
-                {#                            <p>#}
-                {#                                <a href="#" class="btn-quantity plus">#}
-                {#                                    <i class="fa-solid fa-plus"></i>#}
-                {#                                </a>#}
-                {#                            <div class="col_1of2 quantity-text">#}
-                {#                                <p><span class="current_quantity">1</span> @ £2.49</p>#}
-                {#                            </div>#}
-                {#                            <a href="#" class="btn-quantity minus">#}
-                {#                                <i class="fa-solid fa-minus"></i>#}
-                {#                            </a>#}
-                {#                            </p>#}
-                {#                            <input type="hidden" class="quantity_field" name="quantity" data-price="2.49" value="1"/>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {##}
-                {#                </li>#}
-                {#                <li class="grid_4 item">#}
-                {#                    <a href="#" class="btn-remove">#}
-                {#                        <i class="far fa-trash-alt"></i>#}
-                {#                    </a>#}
-                {#                    <div class="preview">#}
-                {#                        <img src="https://assets.cookfood.net/product_1504.jpg"/>#}
-                {#                    </div>#}
-                {#                    <div class="details" data-price="8.50">#}
-                {#                        <h3>#}
-                {#                            White Chocolate & Raspberry Cheesecake#}
-                {#                        </h3>#}
-                {#                        <p>Serves 6 (550g)</p>#}
-                {##}
-                {#                    </div>#}
-                {#                    <div class="inner_container">#}
-                {##}
-                {#                        <div class="col_1of2 align-center picker">#}
-                {#                            <p>#}
-                {#                                <a href="#" class="btn-quantity plus">#}
-                {#                                    <i class="fa-solid fa-plus"></i>#}
-                {#                                </a>#}
-                {#                            <div class="col_1of2 quantity-text">#}
-                {#                                <p><span class="current_quantity">1</span> @ £8.50</p>#}
-                {#                            </div>#}
-                {#                            <a href="#" class="btn-quantity minus">#}
-                {#                                <i class="fa-solid fa-minus"></i>#}
-                {#                            </a>#}
-                {#                            </p>#}
-                {#                            <input type="hidden" class="quantity_field" name="quantity" data-price="8.50" value="1"/>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {##}
-                {#                </li>#}
-            </ul>
-        </div>
+        <ul class="items">
+        </ul>
         <div class="grid_12 coupon">
             <h3>Apply Coupon</h3>
             <input class="coupon-input" type="text">
@@ -141,11 +40,8 @@
                     </div>
                 </div>
                 <div class="btn-summary">
-
                     <a href="#" class="btn-checkout btn-reverse">Continue Shopping</a>
-
                     <a href="#" class="btn-checkout">Checkout</a>
-
                 </div>
             </div>
         </div>
@@ -158,20 +54,16 @@
 
         async function addPageItems(response) {
             let data = await response.json()
-            {#console.log(data)#}
-            {#data = JSON.parse(data)#}
             services_ul.innerHTML = ""
             for (let service of data.services) {
-                {#let img_path = {{ url_for('.static', filename='upload/'+ service.filename) }}#}
-                {#console.log(img_path)#}
                 services_ul.innerHTML += `
                     <li class="grid_4 item">
                         <a href="#" class="btn-remove">
                             <i class="far fa-trash-alt"></i>
                         </a>
-                        <div class="preview">
-                            <img src="/upload/${service.filename}"/>
-                        </div>
+{#                        <div class="preview">#}
+                        <img src="/upload/${service.filename}"/>
+                        {#</div>#}
                         <div class="details" data-price="15.50">
                             <h3>
                                 ${service.service_title}
@@ -187,7 +79,7 @@
                                         <i class="fa-solid fa-plus"></i>
                                     </a>
                                     <div class="col_1of2 quantity-text">
-                                        <p><span class="current_quantity">1</span>${service.price}</p>
+                                        <p><span class="current_quantity">1 </span>${service.price} ₴</p>
                                     </div>
                                     <a href="#" class="btn-quantity minus">
                                         <i class="fa-solid fa-minus"></i>

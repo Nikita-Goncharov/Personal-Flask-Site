@@ -2,7 +2,6 @@
     .container {
         max-width: 1170px;
     }
-
 }
 
 @media (max-width: 992px) {
@@ -37,7 +36,6 @@
     }
 
     /* Resume */
-
     .free-content {
         padding: 20px 0 10px 10px;
     }
@@ -93,9 +91,9 @@
         font-size: 14px;
     }
 
-    .outside{
-      margin-top: 0;
-      margin-bottom: 0;
+    .outside {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .layout_padding {

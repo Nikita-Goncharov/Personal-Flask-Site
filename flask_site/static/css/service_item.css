@@ -21,6 +21,10 @@
 }
 
 /* Right Column */
+.right-column button {
+    border: none;
+}
+
 
 /* Product Description */
 .product-description {

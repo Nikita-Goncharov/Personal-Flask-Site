@@ -1,7 +1,11 @@
-{% extends 'base_auth.html' %}
+{% extends 'base.html' %}
 
 {% block head %}
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/authorization.css') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -33,7 +37,7 @@
                     </ul>
                 {% endif %}
             </div>
-            <button>Login</button>
+            <button class="login-btn">Login</button>
         </form>
     {% endif %}
 
