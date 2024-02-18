@@ -1,9 +1,10 @@
 import json
 
 from flask import Flask, session, redirect, url_for
-from flask_admin import BaseView, expose
+from flask_admin import BaseView, expose, AdminIndexView
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla import ModelView
+from flask_login import current_user
 
 from .auth_module.models import User
 from .auth_module.views import blueprint as auth_blueprint
@@ -12,22 +13,34 @@ from .main_module.models import Comment, Service, TechSkill, WorkExperience, Tel
 from .main_module.views import blueprint as main_blueprint
 
 
+class MyAdminView(AdminIndexView):
+    @expose('/')
+    def index(self):
+        return super(MyAdminView, self).index()
+
+    def is_accessible(self):
+        return session.get('is_logged') and current_user.is_admin
+
+
 class ImageView(FileAdmin):
     allowed_extensions = ('jpeg', 'png', 'jpg')
 
     def is_accessible(self):
-        return session.get('is_logged')
+        return session.get('is_logged') and current_user.is_admin
 
 
 class MyModelView(ModelView):
     def is_accessible(self):
-        return session.get('is_logged')
+        return session.get('is_logged') and current_user.is_admin
 
 
 class LogoutAdminView(BaseView):
     @expose('/')
     def logout_admin(self):
         return redirect(url_for('auth_blue.logout'))
+
+    def is_accessible(self):
+        return session.get('is_logged') and current_user.is_admin
 
 
 def register_extensions(app):
@@ -37,7 +50,7 @@ def register_extensions(app):
 
     login_manager.init_app(app)
     login_manager.login_view = 'auth_blue.login'
-    admin.init_app(app)
+    admin.init_app(app, index_view=MyAdminView())
     admin.name = 'Web on Python'
     admin.template_mode = 'bootstrap3'
     admin.add_view(MyModelView(User, db.session))
