@@ -127,7 +127,7 @@ def add_service_in_basket(service_id):
     return redirect(url_for("app_blue.shop_basket", id=user.basket_id))
 
 
-@blueprint.route('/github_pull_updates')
+@blueprint.route('/github_pull_updates', methods=["POST"])
 def github_pull_updates():  # TODO: change subprocess.run to something what can be async
 
     if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:

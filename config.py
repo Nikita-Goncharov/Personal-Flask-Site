@@ -16,6 +16,7 @@ class Config:
     BOT_TOKEN = os.environ.get('BOT_TOKEN')
     CHAT_ID = os.environ.get('CHAT_ID')
     UPLOAD_FOLDER = BASE_DIR + '/flask_site/static/upload'
+    GITHUB_HOOK_SECRET = os.environ.get('GITHUB_HOOK_SECRET')
 
 
 class DevConfig(Config):
