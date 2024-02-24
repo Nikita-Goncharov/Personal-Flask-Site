@@ -1,8 +1,9 @@
 import json
 import os
+import subprocess
 from datetime import date
 
-from flask import Blueprint, redirect, render_template, url_for, current_app
+from flask import Blueprint, redirect, render_template, url_for, current_app, request
 from flask_login import current_user, login_required
 from werkzeug.utils import secure_filename
 
@@ -124,3 +125,23 @@ def add_service_in_basket(service_id):
     db.session.add(shop_basket_service)
     db.session.commit()
     return redirect(url_for("app_blue.shop_basket", id=user.basket_id))
+
+
+@blueprint.route('/github_pull_updates')
+def github_pull_updates():  # TODO: change subprocess.run to something what can be async
+
+    if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
+        return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
+    try:
+        subprocess.run(f"git pull", shell=True)  # Pull changes from the GitHub repository
+    except subprocess.CalledProcessError as ex:
+        return json.dumps({"message": f"Error pulling from GitHub: {str(ex)}", "code": 500})
+
+    try:
+        # Reload app
+        subprocess.run(["touch", "/var/www/develop352_pythonanywhere_com_wsgi.py"], check=True)
+    except subprocess.CalledProcessError as ex:
+        return json.dumps({"message": f"Error reloading application: {str(ex)}", "code": 500})
+
+    print("CI/CD. Pulling was successful.")
+    return json.dumps({"message": "Webhook received and application reloaded successfully", "code": 200})
