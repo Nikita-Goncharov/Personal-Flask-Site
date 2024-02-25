@@ -133,7 +133,9 @@ def github_pull_updates():  # TODO: change subprocess.run to something what can 
     if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
         return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
     try:
+        subprocess.run(f"git stash", shell=True)
         subprocess.run(f"git pull origin develop", shell=True)  # Pull changes from the GitHub repository
+        subprocess.run(f"git stash pop", shell=True)
     except subprocess.CalledProcessError as ex:
         return json.dumps({"message": f"Error pulling from GitHub: {str(ex)}", "code": 500})
 
