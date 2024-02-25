@@ -130,13 +130,13 @@ def add_service_in_basket(service_id):
 
 @blueprint.route('/github_pull_updates', methods=["POST"])
 def github_pull_updates():
+    print("HEADERS: ", request.headers)
     if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
+        print("X-Hub-Signature is incorrect")
         return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
 
     repo = Repo('/home/develop352/FlaskSite')
-    # origin = repo.remotes.origin
     repo.git.stash()
-    # origin.pull("develop")
     repo.remotes.origin.fetch()
     develop_branch = repo.remote().refs['develop']
     repo.git.merge(develop_branch)
@@ -147,7 +147,10 @@ def github_pull_updates():
         # Reload app
         subprocess.run(["touch", "/var/www/develop352_pythonanywhere_com_wsgi.py"], check=True)
     except subprocess.CalledProcessError as ex:
+        print("Can`t reload site")
         return json.dumps({"message": f"Error reloading application: {str(ex)}", "code": 500})
+    print("Webhook received and application reloaded successfully")
+    return json.dumps({"message": f"Webhook received and application reloaded successfully", "code": 200})
 
 # def github_pull_updates():  # TODO: change subprocess.run to something what can be async
 #
