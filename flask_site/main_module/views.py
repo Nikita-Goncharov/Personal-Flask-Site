@@ -131,9 +131,9 @@ def add_service_in_basket(service_id):
 @blueprint.route('/github_pull_updates', methods=["POST"])
 def github_pull_updates():
     print("HEADERS: ", request.headers)
-    if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
-        print("X-Hub-Signature is incorrect")
-        return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
+    # if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
+    #     print("X-Hub-Signature is incorrect")
+    #     return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
 
     repo = Repo('/home/develop352/FlaskSite')
     repo.git.stash()
