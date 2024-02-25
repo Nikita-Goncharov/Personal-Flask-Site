@@ -7,7 +7,7 @@
 
 body {
     color: #000;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .outside {
@@ -25,7 +25,7 @@ body {
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
     padding: 0 30px;
     color: #343434;
-    text-align: center
+    text-align: center;
 }
 
 .navbar-nav a:hover {
@@ -98,7 +98,8 @@ body {
 }
 
 .header_section {
-    background-color: #f3f3f3;
+    /*background-color: #f3f3f3;*/
+    background-color: #000;
 }
 
 .wrapper {
