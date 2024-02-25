@@ -150,7 +150,7 @@ def github_pull_updates():
         print("Can`t reload site")
         return json.dumps({"message": f"Error reloading application: {str(ex)}", "code": 500})
     print("Webhook received and application reloaded successfully")
-    return json.dumps({"message": f"Webhook received and application reloaded successfully", "code": 200})
+    return json.dumps({"message": "Webhook received and application reloaded successfully", "code": 200})
 
 # def github_pull_updates():  # TODO: change subprocess.run to something what can be async
 #
