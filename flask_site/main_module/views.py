@@ -5,6 +5,7 @@ from datetime import date
 
 from flask import Blueprint, redirect, render_template, url_for, current_app, request
 from flask_login import current_user, login_required
+from git import Repo
 from werkzeug.utils import secure_filename
 
 from flask_site.extensions import db
@@ -128,16 +129,19 @@ def add_service_in_basket(service_id):
 
 
 @blueprint.route('/github_pull_updates', methods=["POST"])
-def github_pull_updates():  # TODO: change subprocess.run to something what can be async
-
+def github_pull_updates():
     if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
         return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
-    try:
-        subprocess.run(f"git stash", shell=True)
-        subprocess.run(f"git pull origin develop", shell=True)  # Pull changes from the GitHub repository
-        subprocess.run(f"git stash pop", shell=True)
-    except subprocess.CalledProcessError as ex:
-        return json.dumps({"message": f"Error pulling from GitHub: {str(ex)}", "code": 500})
+
+    repo = Repo('/home/develop352/FlaskSite')
+    # origin = repo.remotes.origin
+    repo.git.stash()
+    # origin.pull("develop")
+    repo.remotes.origin.fetch()
+    develop_branch = repo.remote().refs['develop']
+    repo.git.merge(develop_branch)
+
+    repo.git.stash("pop")
 
     try:
         # Reload app
@@ -145,5 +149,22 @@ def github_pull_updates():  # TODO: change subprocess.run to something what can 
     except subprocess.CalledProcessError as ex:
         return json.dumps({"message": f"Error reloading application: {str(ex)}", "code": 500})
 
-    print("CI/CD. Pulling was successful.")
-    return json.dumps({"message": "Webhook received and application reloaded successfully", "code": 200})
+# def github_pull_updates():  # TODO: change subprocess.run to something what can be async
+#
+#     if request.headers.get("X-Hub-Signature") != current_app.config["GITHUB_HOOK_SECRET"]:
+#         return json.dumps({"message": "Error. Secret keys are not the same", "code": 403})
+#     try:
+#         subprocess.run(f"git stash", shell=True)
+#         subprocess.run(f"git pull origin develop", shell=True)  # Pull changes from the GitHub repository
+#         subprocess.run(f"git stash pop", shell=True)
+#     except subprocess.CalledProcessError as ex:
+#         return json.dumps({"message": f"Error pulling from GitHub: {str(ex)}", "code": 500})
+#
+#     try:
+#         # Reload app
+#         subprocess.run(["touch", "/var/www/develop352_pythonanywhere_com_wsgi.py"], check=True)
+#     except subprocess.CalledProcessError as ex:
+#         return json.dumps({"message": f"Error reloading application: {str(ex)}", "code": 500})
+#
+#     print("CI/CD. Pulling was successful.")
+#     return json.dumps({"message": "Webhook received and application reloaded successfully", "code": 200})
